@@ -1,0 +1,49 @@
+{
+  "name": "implausible",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "Andreas Stassivik <andreas@stassi.net> (https://github.com/Stassi)",
+  "files": [
+    "/lib"
+  ],
+  "main": "./lib/implausible.umd.js",
+  "module": "./lib/implausible.esm.js",
+  "repository": "github:Stassi/implausible",
+  "scripts": {
+    "build": "rollup -c",
+    "lint": "eslint src",
+    "prepublishOnly": "npm run build",
+    "test": "cross-env NODE_ENV=test mocha"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/register": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "chai": "^4.1.2",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.12.3",
+    "mocha": "^5.2.0",
+    "rollup": "^1.1.0",
+    "rollup-plugin-babel": "^4.3.0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-terser": "^4.0.2"
+  },
+  "engines": {
+    "node": ">=6.14.0",
+    "npm": ">=3.10.10"
+  },
+  "browserslist": [
+    "defaults",
+    "node 6",
+    "node 8",
+    "node 10"
+  ]
+}
