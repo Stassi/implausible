@@ -1,7 +1,7 @@
 import seedrandom from 'seedrandom';
 
 const arc4 = seed => seedrandom(seed)();
-const prng = name => seed => seedrandom[name](seed || arc4())();
+const prng = name => seed => seedrandom[name](seed)();
 
 const alea = prng('alea');
 const tychei = prng('tychei');
