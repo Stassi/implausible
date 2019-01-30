@@ -36,7 +36,7 @@ Insert the following element within the `<head>` tag of an HTML document:
 After the script is loaded, the `implausible` browser global is exposed:
 ```es6
 implausible.prng();
-// example output: 0.9282578795792454
+// example output: 0.6736552471595748
 ```
 
 ## Node.js
@@ -63,10 +63,10 @@ const { prng } = require('implausible');
 ### Generate stochastic number
 ```es6
 prng();
-// output: 0.4471833625387327
+// example output: 0.4471833625387327
 
 prng();
-// output: 0.18700348375416123
+// example output: 0.18700348375416123
 ```
 
 ### Generate deterministic number
@@ -84,7 +84,7 @@ Refer to the list of PRNG names for valid parameter `{ name }` values.
 #### Stochastic
 ```es6
 prng({ name: 'xor4096' });
-// output: 0.8257879579245438
+// example output: 0.7105067998636514
 ```
 
 #### Deterministic
@@ -93,7 +93,7 @@ prng({
   name: 'xor4096',
   seed: 'hello.',
 });
-// output: 0.8257879579245438
+// output: 0.9798525865189731
 ```
 
 ## API
