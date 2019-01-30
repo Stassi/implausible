@@ -14,6 +14,19 @@
 RunKit provides one of the least difficult ways to get started:
 * [test with RunKit][runkit implausible]
 
+### CodePen
+Declare imports in the `JS` section to get started:
+```es6
+import { prng } from 'https://unpkg.com/implausible@latest?module';
+```
+
+```es6
+const generated = prng();
+console.log(generated);
+// example output: 0.3722007770466942
+```
+* [test with CodePen][codepen new]
+
 ### Browsers
 Insert the following element within the `<head>` tag of an HTML document:
 ```html
