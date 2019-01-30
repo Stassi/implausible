@@ -28,7 +28,7 @@ export default [
     output: {
       file: 'lib/implausible.umd.js',
       format: 'umd',
-      name: 'spaceships',
+      name: 'implausible',
       sourcemap: true,
     },
   }
