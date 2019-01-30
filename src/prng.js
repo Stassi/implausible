@@ -6,11 +6,11 @@ const choosePrng = name => name === 'arc4'
   ? arc4
   : seedrandom[name];
 
-const applySeed = ({
+const setDefaultsAndApplySeed = ({
   seed,
   name = 'arc4',
 }) => choosePrng(name)(seed || arc4());
 
-const prng = (params = {}) => applySeed(params)();
+const prng = (params = {}) => setDefaultsAndApplySeed(params)();
 
 export default prng;
