@@ -7,21 +7,52 @@
 [![node version compatibility][shields node]][implausible package]
 [![npm current version][shields npm]][npm implausible]
 
-## PRNGs
-The following pseudorandom number generators (PRNGs) are included by module name:
-* alea
-* arc4
-* tychei
-* xor128
-* xor4096
-* xorshift7
-* xorwow
+## Usage
+### Import
+```javascript
+import { prng } from 'implausible';
+```
 
-### Seeded (deterministic)
-When an optional `seed` parameter is provided (i.e.: `arc4(seed)`), generates a deterministic number between `0` and `1`.
+### Generate stochastic number
+```javascript
+prng();
+// output: 0.9282578795792454
 
-### Unseeded (stochastic)
-When `seed` is not provided (i.e.: `arc4()`), generates a stochastic number between `0` and `1`.
+prng();
+// output: 0.7404357127379626
+```
+
+### Generate deterministic number
+```javascript
+prng({ seed: 'hello.' });
+// output: 0.9282578795792454
+
+prng({ seed: 'hello.' });
+// output: 0.9282578795792454
+```
+
+## API
+### `prng({ name, seed })`
+#### Input
+| parameter | input type(s) | default | description |
+| --------- | ---- | ------- | ----------- |
+| `name` | `String` | `arc9` | choose valid input from list of PRNG names |
+| `seed` | `Number`, `String` | `undefined`  (stochastic) | deterministic when provided, stochastic when undefined |
+
+#### Output
+Generates a `Number` equal to or greater than `0` and less than `1`.
+
+#### List of PRNG names
+The following names of pseudorandom number generators (PRNGs) are valid inputs for the `{ name }` parameter:
+* `alea`
+* `arc4` (default)
+* `tychei`
+* `xor128`
+* `xor4096`
+* `xorshift7`
+* `xorwow`
+
+Visit [seedrandom documentation][npm seedrandom] for more information on these algorithms.
 
 ## Credits
 Thanks to David Bau and additional authors for distributing parent package [seedrandom][npm seedrandom] under the MIT license.
