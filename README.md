@@ -63,10 +63,10 @@ const { prng } = require('implausible');
 ### Generate stochastic number
 ```es6
 prng();
-// output: 0.9282578795792454
+// output: 0.4471833625387327
 
 prng();
-// output: 0.7404357127379626
+// output: 0.18700348375416123
 ```
 
 ### Generate deterministic number
