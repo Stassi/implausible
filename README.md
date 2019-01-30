@@ -21,8 +21,9 @@ import { prng } from 'https://unpkg.com/implausible@latest?module';
 ```
 
 ```es6
-prng();
-// example output: 0.9282578795792454
+const generated = prng();
+console.log(generated);
+// example output: 0.3722007770466942
 ```
 * [test with CodePen][codepen new]
 
