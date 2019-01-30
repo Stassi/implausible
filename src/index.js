@@ -7,10 +7,12 @@ import {
   xorshift7,
   xorwow,
 } from './prngs';
+import prng from './prng';
 
 export {
   alea,
   arc4,
+  prng,
   tychei,
   xor128,
   xor4096,

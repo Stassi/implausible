@@ -1,57 +1,70 @@
 import { expect } from 'chai';
-import {
-  alea,
-  arc4,
-  tychei,
-  xor128,
-  xor4096,
-  xorshift7,
-  xorwow,
-} from '../src';
+import { prng } from '../src';
 
-describe('pseudorandom number generator (deprecated)', () => {
+describe('pseudorandom number generator', () => {
   describe('seeded', () => {
     const seed = 'hello.';
 
     describe('alea', () => {
       it('should have deterministic output', () => {
-        expect(alea(seed)).to.equal(0.4783254903741181);
+        expect(prng({
+          seed,
+          name: 'alea',
+        })).to.equal(false);
       });
     });
 
     describe('arc4', () => {
       it('should have deterministic output', () => {
-        expect(arc4(seed)).to.equal(0.9282578795792454);
+        expect(prng({
+          seed,
+          name: 'arc4',
+        })).to.equal(false);
       });
     });
 
     describe('tychei', () => {
       it('should have deterministic output', () => {
-        expect(tychei(seed)).to.equal(0.4676165450364351);
+        expect(prng({
+          seed,
+          name: 'tychei',
+        })).to.equal(false);
       });
     });
 
     describe('xor128', () => {
       it('should have deterministic output', () => {
-        expect(xor128(seed)).to.equal(0.698391932528466);
+        expect(prng({
+          seed,
+          name: 'xor128',
+        })).to.equal(false);
       });
     });
 
     describe('xor4096', () => {
       it('should have deterministic output', () => {
-        expect(xor4096(seed)).to.equal(0.9798525865189731);
+        expect(prng({
+          seed,
+          name: 'xor4096',
+        })).to.equal(false);
       });
     });
 
     describe('xorshift7', () => {
       it('should have deterministic output', () => {
-        expect(xorshift7(seed)).to.equal(0.7404357127379626);
+        expect(prng({
+          seed,
+          name: 'xorshift7',
+        })).to.equal(false);
       });
     });
 
     describe('xorwow', () => {
       it('should have deterministic output', () => {
-        expect(xorwow(seed)).to.equal(0.14254314289428294);
+        expect(prng({
+          seed,
+          name: 'xorwow',
+        })).to.equal(false);
       });
     });
   });
@@ -59,43 +72,43 @@ describe('pseudorandom number generator (deprecated)', () => {
   describe('unseeded', () => {
     describe('alea', () => {
       it('should have stochastic output', () => {
-        expect(alea()).to.be.within(0, 1);
+        expect(prng({ name: 'alea' })).to.equal(false);
       });
     });
 
     describe('arc4', () => {
       it('should have stochastic output', () => {
-        expect(arc4()).to.be.within(0, 1);
+        expect(prng({ name: 'arc4' })).to.equal(false);
       });
     });
 
     describe('tychei', () => {
       it('should have stochastic output', () => {
-        expect(tychei()).to.be.within(0, 1);
+        expect(prng({ name: 'tychei' })).to.equal(false);
       });
     });
 
     describe('xor128', () => {
       it('should have stochastic output', () => {
-        expect(xor128()).to.be.within(0, 1);
+        expect(prng({ name: 'xor128' })).to.equal(false);
       });
     });
 
     describe('xor4096', () => {
       it('should have stochastic output', () => {
-        expect(xor4096()).to.be.within(0, 1);
+        expect(prng({ name: 'xor4096' })).to.equal(false);
       });
     });
 
     describe('xorshift7', () => {
       it('should have stochastic output', () => {
-        expect(xorshift7()).to.be.within(0, 1);
+        expect(prng({ name: 'xorshift7' })).to.equal(false);
       });
     });
 
     describe('xorwow', () => {
       it('should have stochastic output', () => {
-        expect(xorwow()).to.be.within(0, 1);
+        expect(prng({ name: 'xorwow' })).to.equal(false);
       });
     });
   });
