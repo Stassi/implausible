@@ -1,6 +1,12 @@
 {
   "name": "implausible",
-  "version": "2.0.5",
+  "version": "2.0.6",
+  "description": "Generate pseudorandom numbers with optional seed and choice of algorithm.",
+  "keywords": [
+    "prng",
+    "pseudorandom",
+    "seedable"
+  ],
   "license": "MIT",
   "author": "Andreas Stassivik <andreas@stassi.net> (https://github.com/Stassi)",
   "files": [
