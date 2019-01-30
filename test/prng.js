@@ -87,6 +87,13 @@ describe('pseudorandom number generator', () => {
     });
 
     describe('arc4', () => {
+      describe('2 stochastic variables', () => {
+        const [ x, y ] = [ prng(), prng() ];
+        it('should be unique', () => {
+          expect(x).to.not.equal(y);
+        })
+      });
+
       describe('default name parameter', () => {
         it('should have stochastic output', () => {
           expect(prng()).to.be.within(0, 1);
