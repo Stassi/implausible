@@ -104,7 +104,7 @@ All parameters are optional properties of an optional `Object`.
 
 | parameter | input type(s) | default | description |
 | --------- | ------------- | ------- | ----------- |
-| `name` | `String` | `arc4` | Refer to the list of PRNG names for valid parameter `{ name }` values. |
+| `name` | `String` | `arc4` | Refer to the list of PRNG names for values. |
 | `seed` | `Number`, `String` | `undefined`  (stochastic) | Deterministic when provided, or stochastic when undefined. |
 
 #### Output
