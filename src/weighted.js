@@ -1,8 +1,15 @@
 import {
+  add,
   descend,
+  divide,
+  find,
+  last,
+  lt,
   map,
   pipe,
   prop,
+  propOr,
+  reduce,
   sort,
   sum,
   toPairs,
@@ -44,31 +51,48 @@ const toNamesByDescendingWeight = ({
   namesByDescendingWeight: namesByDescendingWeight(distribution),
 });
 
-// TODO: Implement
-const debug = ({
+const toCeilings = ({
   namesByDescendingWeight,
   totalWeight,
   ...props
-}) => {
-  // TODO: Implement reducer
-  const debugTwo = [
-    namesByDescendingWeight[0].weight / totalWeight,
-    namesByDescendingWeight[0].weight / totalWeight
-      + namesByDescendingWeight[1].weight / totalWeight,
-    namesByDescendingWeight[0].weight / totalWeight
-      + namesByDescendingWeight[1].weight / totalWeight
-      + namesByDescendingWeight[2].weight / totalWeight,
-  ];
-  const res = { ...props, debugTwo };
-  return res;
-};
+}) => ({
+  ...props,
+  ceilings: reduce(
+    (acc, { name, weight }) => [
+      ...acc,
+      {
+        name,
+        ceiling: add(
+          propOr(
+            0,
+            'ceiling',
+            last(acc),
+          ),
+          divide(weight, totalWeight),
+        ),
+      },
+    ],
+    [],
+    namesByDescendingWeight,
+  ),
+});
 
-// TODO: Implement
+// TODO: Partial application
+const findCeilingGreaterThanGenerated = ({ ceilings, generated }) => find(
+  pipe(
+    prop('ceiling'),
+    lt(generated),
+  ),
+  ceilings,
+);
+
 const weighted = pipe(
   toGenerated,
   toTotalWeight,
   toNamesByDescendingWeight,
-  debug,
+  toCeilings,
+  findCeilingGreaterThanGenerated,
+  prop('name'),
 );
 
 export default weighted;
