@@ -1,47 +1,28 @@
 import {
   add,
-  descend,
   divide,
   find,
   last,
   lt,
-  map,
   pipe,
   prop,
   propOr,
   reduce,
-  sort,
-  sum,
-  toPairs,
-  values,
 } from 'ramda';
+import namesByDescendingWeight from './namesByDescendingWeight';
 import prng from './prng';
+import sumOfValues from './sumOfValues';
 
 const toGenerated = ({ seed, ...props }) => ({
   ...props,
   generated: prng({ seed }),
 });
 
-const sumOfValues = pipe(
-  values,
-  sum,
-);
-
 const toTotalWeight = ({ distribution, ...props }) => ({
   ...props,
   distribution,
   totalWeight: sumOfValues(distribution),
 });
-
-const namesByDescendingWeight = pipe(
-  toPairs,
-  map(([name, weight]) => ({ name, weight })),
-  sort(
-    descend(
-      prop('weight'),
-    ),
-  ),
-);
 
 const toNamesByDescendingWeight = ({
   distribution,
