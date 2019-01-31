@@ -51,6 +51,7 @@ const toNamesByDescendingWeight = ({
   namesByDescendingWeight: namesByDescendingWeight(distribution),
 });
 
+// TODO: Partial application
 const toCeilings = ({
   namesByDescendingWeight,
   totalWeight,
