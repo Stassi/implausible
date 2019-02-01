@@ -10,7 +10,7 @@ import {
   reduce,
 } from 'ramda';
 import namesByDescendingWeight from './namesByDescendingWeight';
-import prng from './prng';
+import prng from '../prng';
 import sumOfValues from './sumOfValues';
 
 const toGenerated = ({ seed, ...props }) => ({
