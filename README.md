@@ -70,6 +70,14 @@ prng();
 // example output: 0.18700348375416123
 ```
 
+#### ...with a specific algorithm
+Refer to the list of PRNG names for valid parameter `{ name }` values.
+
+```es6
+prng({ name: 'xor4096' });
+// example output: 0.7105067998636514
+```
+
 ### Generate deterministic number
 ```es6
 prng({ seed: 'hello.' });
@@ -79,16 +87,8 @@ prng({ seed: 'hello.' });
 // output: 0.9282578795792454
 ```
 
-### Generate number from a specific algorithm
+#### ...with a specific algorithm
 Refer to the list of PRNG names for valid parameter `{ name }` values.
-
-#### Stochastic
-```es6
-prng({ name: 'xor4096' });
-// example output: 0.7105067998636514
-```
-
-#### Deterministic
 ```es6
 prng({
   name: 'xor4096',
