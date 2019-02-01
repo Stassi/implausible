@@ -9,12 +9,6 @@ describe('weighted pseudorandom number generator', () => {
   };
 
   describe('seeded', () => {
-    it('should have stochastic output', () => {
-      expect(weighted({ collection })).to.be.a('string');
-    });
-  });
-
-  describe('unseeded', () => {
     const seed = 'hello.';
 
     it('should have deterministic output', () => {
@@ -31,6 +25,12 @@ describe('weighted pseudorandom number generator', () => {
           seed,
         })).to.equal('x');
       });
+    });
+  });
+
+  describe('unseeded', () => {
+    it('should have stochastic output', () => {
+      expect(weighted({ collection })).to.be.a('string');
     });
   });
 });
