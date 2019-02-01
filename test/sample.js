@@ -1,7 +1,7 @@
 import { expect } from 'chai';
-import { weighted } from '../src';
+import { sample } from '../src';
 
-describe('weighted pseudorandom number generator', () => {
+describe('weighted pseudorandom sample', () => {
   const collection = {
     x: 4,
     y: 1,
@@ -12,14 +12,14 @@ describe('weighted pseudorandom number generator', () => {
     const seed = 'hello.';
 
     it('should have deterministic output', () => {
-      expect(weighted({ collection, seed })).to.equal('y');
+      expect(sample({ collection, seed })).to.equal('y');
     });
 
     describe('custom PRNG', () => {
       const name = 'tychei';
 
       it('should have deterministic output', () => {
-        expect(weighted({
+        expect(sample({
           collection,
           name,
           seed,
@@ -30,7 +30,7 @@ describe('weighted pseudorandom number generator', () => {
 
   describe('unseeded', () => {
     it('should have stochastic output', () => {
-      expect(weighted({ collection })).to.be.a('string');
+      expect(sample({ collection })).to.be.a('string');
     });
   });
 });

@@ -1,4 +1,4 @@
 import prng from './prng';
-import weighted from './weighted';
+import sample from './sample';
 
-export { prng, weighted };
+export { prng, sample };
