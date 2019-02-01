@@ -9,14 +9,12 @@ import {
   propOr,
   reduce,
 } from 'ramda';
-import namesByDescendingWeight from './namesByDescendingWeight';
+import namesByDescendingWeightAndTotalWeight from './namesByDescendingWeightAndTotalWeight';
 import prng from '../prng';
-import sumOfValues from './sumOfValues';
 
 const toNamesByDescendingWeightAndTotalWeight = ({ distribution, ...props }) => ({
   ...props,
-  namesByDescendingWeight: namesByDescendingWeight(distribution),
-  totalWeight: sumOfValues(distribution),
+  ...namesByDescendingWeightAndTotalWeight(distribution),
 });
 
 // TODO: Partial application
