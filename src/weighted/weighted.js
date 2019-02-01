@@ -1,12 +1,9 @@
-import {
-  find,
-  lt,
-  pipe,
-  prop,
-} from 'ramda';
+import { pipe, prop } from 'ramda';
 import prng from '../prng';
-import toDivideBySumOfValuesAndNamesByDescendingWeight from './toDivideBySumOfValuesAndNamesByDescendingWeight';
+import toDivideBySumOfValuesAndNamesByDescendingWeight
+  from './toDivideBySumOfValuesAndNamesByDescendingWeight';
 import transformWeightsToCeilings from './weightsToCeilings';
+import findCeilingGreaterThanGenerated from './findCeilingGreaterThanGenerated';
 
 const applyDistribution = ({ distribution, ...props }) => ({
   ...props,
@@ -32,22 +29,26 @@ const toGenerated = ({ seed, ...props }) => ({
   generated: prng({ seed }),
 });
 
-// TODO: Partial application
-const findCeilingGreaterThanGenerated = ({ ceilings, generated }) => find(
-  pipe(
-    prop('ceiling'),
-    lt(generated),
-  ),
+const toFindCeilingGreaterThanGenerated = ({ generated, ...props }) => ({
+  ...props,
+  findCeilingGreaterThanGenerated: findCeilingGreaterThanGenerated(generated),
+});
+
+const applyCeilings = ({
   ceilings,
-);
+  findCeilingGreaterThanGenerated,
+}) => findCeilingGreaterThanGenerated(ceilings);
+
+const nameProp = prop('name');
 
 const weighted = pipe(
   applyDistribution,
   toWeightsToCeilings,
   toCeilings,
   toGenerated,
-  findCeilingGreaterThanGenerated,
-  prop('name'),
+  toFindCeilingGreaterThanGenerated,
+  applyCeilings,
+  nameProp,
 );
 
 export default weighted;
