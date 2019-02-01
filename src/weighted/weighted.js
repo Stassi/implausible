@@ -1,22 +1,16 @@
 import {
-  applySpec,
   find,
   lt,
   pipe,
   prop,
 } from 'ramda';
-import divideBySumOfValues from './divideBySumOfValues';
-import namesByDescendingWeight from './namesByDescendingWeight';
 import prng from '../prng';
+import toDivideBySumOfValuesAndNamesByDescendingWeight from './toDivideBySumOfValuesAndNamesByDescendingWeight';
 import transformWeightsToCeilings from './weightsToCeilings';
 
-// TODO: Rename, extract subcomponents
 const applyDistribution = ({ distribution, ...props }) => ({
   ...props,
-  ...applySpec({
-    divideBySumOfValues,
-    namesByDescendingWeight,
-  })(distribution),
+  ...toDivideBySumOfValuesAndNamesByDescendingWeight(distribution),
 });
 
 const toWeightsToCeilings = ({ divideBySumOfValues, ...props }) => ({
