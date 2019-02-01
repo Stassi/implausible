@@ -1,22 +1,24 @@
 import {
   add,
   last,
+  pipe,
   propOr,
   reduce,
 } from 'ramda';
+
+const ceilingPropOrZero = propOr(0, 'ceiling');
+const lastCeilingPropOrZero = pipe(
+  last,
+  ceilingPropOrZero,
+);
 
 const weightsToCeilings = divideBySumOfValues => reduce(
   (acc, { name, weight }) => [
     ...acc,
     {
       name,
-      // TODO: Extract subcomponents
       ceiling: add(
-        propOr(
-          0,
-          'ceiling',
-          last(acc),
-        ),
+        lastCeilingPropOrZero(acc),
         divideBySumOfValues(weight),
       ),
     },
