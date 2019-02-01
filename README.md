@@ -123,6 +123,19 @@ All parameters are optional properties of an optional `Object`.
 #### Output
 Generates a `Number` equal to or greater than `0` and less than `1`.
 
+### `weighted({ collection[, name][, seed] })`
+#### Input
+All parameters are properties of an `Object`.
+
+| parameter | input type(s) | default | description |
+| --------- | ------------- | ------- | ----------- |
+| `collection` (required) | `Object` of `{String:Number}` pairs | | Histogram where the relative probability of sampling a __key__ is determined by its `Number` __value__. |
+| `name` | `String` | `arc4` | Refer to the list of PRNG names for values. |
+| `seed` | `Number`, `String` | `undefined`  (stochastic) | Deterministic when provided, or stochastic when undefined. |
+
+#### Output
+Generates a `String` weighted random sample from a `collection` key.
+
 ## Credits
 Thanks to David Bau and additional authors for distributing parent package [seedrandom][npm seedrandom] under the MIT license.
 
