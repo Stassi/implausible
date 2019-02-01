@@ -17,6 +17,24 @@ const toNamesByDescendingWeightAndTotalWeight = ({ distribution, ...props }) => 
   ...namesByDescendingWeightAndTotalWeight(distribution),
 });
 
+const ceilings = totalWeight => reduce(
+  (acc, { name, weight }) => [
+    ...acc,
+    {
+      name,
+      ceiling: add(
+        propOr(
+          0,
+          'ceiling',
+          last(acc),
+        ),
+        divide(weight, totalWeight),
+      ),
+    },
+  ],
+  [],
+);
+
 // TODO: Partial application
 const toCeilings = ({
   namesByDescendingWeight,
@@ -24,24 +42,7 @@ const toCeilings = ({
   ...props
 }) => ({
   ...props,
-  ceilings: reduce(
-    (acc, { name, weight }) => [
-      ...acc,
-      {
-        name,
-        ceiling: add(
-          propOr(
-            0,
-            'ceiling',
-            last(acc),
-          ),
-          divide(weight, totalWeight),
-        ),
-      },
-    ],
-    [],
-    namesByDescendingWeight,
-  ),
+  ceilings: ceilings(totalWeight)(namesByDescendingWeight),
 });
 
 const toGenerated = ({ seed, ...props }) => ({
