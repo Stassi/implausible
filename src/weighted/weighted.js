@@ -1,48 +1,36 @@
 import {
-  add,
-  divide,
+  applySpec,
   find,
-  last,
   lt,
   pipe,
   prop,
-  propOr,
-  reduce,
 } from 'ramda';
-import namesByDescendingWeightAndTotalWeight from './namesByDescendingWeightAndTotalWeight';
+import divideBySumOfValues from './divideBySumOfValues';
+import namesByDescendingWeight from './namesByDescendingWeight';
 import prng from '../prng';
+import transformWeightsToCeilings from './weightsToCeilings';
 
-const toNamesByDescendingWeightAndTotalWeight = ({ distribution, ...props }) => ({
+// TODO: Rename, extract subcomponents
+const applyDistribution = ({ distribution, ...props }) => ({
   ...props,
-  ...namesByDescendingWeightAndTotalWeight(distribution),
+  ...applySpec({
+    divideBySumOfValues,
+    namesByDescendingWeight,
+  })(distribution),
 });
 
-const ceilings = totalWeight => reduce(
-  (acc, { name, weight }) => [
-    ...acc,
-    {
-      name,
-      ceiling: add(
-        propOr(
-          0,
-          'ceiling',
-          last(acc),
-        ),
-        divide(weight, totalWeight),
-      ),
-    },
-  ],
-  [],
-);
+const toWeightsToCeilings = ({ divideBySumOfValues, ...props }) => ({
+  ...props,
+  weightsToCeilings: transformWeightsToCeilings(divideBySumOfValues),
+});
 
-// TODO: Partial application
 const toCeilings = ({
+  weightsToCeilings,
   namesByDescendingWeight,
-  totalWeight,
   ...props
 }) => ({
   ...props,
-  ceilings: ceilings(totalWeight)(namesByDescendingWeight),
+  ceilings: weightsToCeilings(namesByDescendingWeight),
 });
 
 const toGenerated = ({ seed, ...props }) => ({
@@ -60,7 +48,8 @@ const findCeilingGreaterThanGenerated = ({ ceilings, generated }) => find(
 );
 
 const weighted = pipe(
-  toNamesByDescendingWeightAndTotalWeight,
+  applyDistribution,
+  toWeightsToCeilings,
   toCeilings,
   toGenerated,
   findCeilingGreaterThanGenerated,
