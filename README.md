@@ -7,7 +7,7 @@
 [![node version compatibility][shields node]][implausible package]
 [![npm current version][shields npm]][npm implausible]
 ---
-**implausible** is a collection of [pseudorandom number generators (PRNGs)][wikipedia prng] powered by [seedrandom][npm seedrandom].
+**implausible** is a collection of [pseudorandom number generators (PRNGs)][wikipedia prng] and utilities powered by [seedrandom][npm seedrandom].
 
 ## Quick start
 ### RunKit
@@ -52,12 +52,12 @@ Once installed, declare method imports at the top of each JavaScript file they w
 ### ES2015
 __Recommended__
 ```es6
-import { prng } from 'implausible';
+import { prng, sample } from 'implausible';
 ```
 
 ### CommonJS
 ```javascript
-const { prng } = require('implausible');
+const { prng, sample } = require('implausible');
 ```
 
 ## Usage
@@ -97,9 +97,9 @@ prng({
 // output: 0.9798525865189731
 ```
 
-### Generate stochastic weighted sample
+### Stochastic weighted sample
 ```es6
-weighted({
+sample({
   collection: {
     heads: 1,
     tails: 1,
@@ -108,11 +108,11 @@ weighted({
 // example output: 'tails'
 ```
 
-#### ...from a specific algorithm
+#### ...with a specific algorithm
 Refer to the list of PRNG names for valid parameter `{ name }` values.
 
 ```es6
-weighted({
+sample({
   collection: {
     heads: 1,
     tails: 1,
@@ -122,9 +122,9 @@ weighted({
 // example output: 'heads'
 ```
 
-### Generate deterministic weighted sample
+### Deterministic weighted sample
 ```es6
-weighted({
+sample({
   collection: {
     heads: 1,
     tails: 1,
@@ -134,11 +134,11 @@ weighted({
 // output: 'tails'
 ```
 
-#### ...from a specific algorithm
+#### ...with a specific algorithm
 Refer to the list of PRNG names for valid parameter `{ name }` values.
 
 ```es6
-weighted({
+sample({
   collection: {
     heads: 1,
     tails: 1,
@@ -175,7 +175,7 @@ All parameters are optional properties of an optional `Object`.
 #### Output
 Generates a `Number` equal to or greater than `0` and less than `1`.
 
-### `weighted({ collection[, name][, seed] })`
+### `sample({ collection[, name][, seed] })`
 #### Input
 All parameters are properties of an `Object`.
 
