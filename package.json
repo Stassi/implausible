@@ -3,9 +3,15 @@
   "version": "2.1.0",
   "description": "Generate pseudorandom numbers with optional seed and choice of algorithm.",
   "keywords": [
+    "deterministic",
     "prng",
     "pseudorandom",
-    "seedable"
+    "random",
+    "sample",
+    "seedable",
+    "seeded",
+    "stochastic",
+    "weighted"
   ],
   "license": "MIT",
   "author": "Andreas Stassivik <andreas@stassi.net> (https://github.com/Stassi)",
