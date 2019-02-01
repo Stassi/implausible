@@ -16,8 +16,8 @@ const toWeightsToCeilings = ({ divideBySumOfValues, ...props }) => ({
 });
 
 const toCeilings = ({
-  weightsToCeilings,
   namesByDescendingWeight,
+  weightsToCeilings,
   ...props
 }) => ({
   ...props,
