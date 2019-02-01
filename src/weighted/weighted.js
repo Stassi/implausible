@@ -24,9 +24,13 @@ const toCeilings = ({
   ceilings: weightsToCeilings(namesByDescendingWeight),
 });
 
-const toGenerated = ({ seed, ...props }) => ({
+const toGenerated = ({
+  name,
+  seed,
+  ...props
+}) => ({
   ...props,
-  generated: prng({ seed }),
+  generated: prng({ name, seed }),
 });
 
 const toFindCeilingGreaterThanGenerated = ({ generated, ...props }) => ({

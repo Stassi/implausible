@@ -20,5 +20,17 @@ describe('weighted pseudorandom number generator', () => {
     it('should have deterministic output', () => {
       expect(weighted({ distribution, seed })).to.equal('y');
     });
+
+    describe('custom PRNG', () => {
+      const name = 'tychei';
+
+      it('should have deterministic output', () => {
+        expect(weighted({
+          distribution,
+          name,
+          seed,
+        })).to.equal('x');
+      });
+    });
   });
 });
