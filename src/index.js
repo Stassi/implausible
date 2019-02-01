@@ -1,4 +1,4 @@
 import prng from './prng';
+import sample from './sample';
 
-// eslint-disable-next-line import/prefer-default-export
-export { prng };
+export { prng, sample };

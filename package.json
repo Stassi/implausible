@@ -1,6 +1,6 @@
 {
   "name": "implausible",
-  "version": "2.0.6",
+  "version": "2.1.0",
   "description": "Generate pseudorandom numbers with optional seed and choice of algorithm.",
   "keywords": [
     "prng",
@@ -22,6 +22,7 @@
     "test": "cross-env NODE_ENV=test mocha"
   },
   "dependencies": {
+    "ramda": "^0.26.1",
     "seedrandom": "^2.4.4"
   },
   "devDependencies": {
