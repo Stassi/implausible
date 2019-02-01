@@ -5,9 +5,9 @@ import toDivideBySumOfValuesAndNamesByDescendingWeight
 import transformWeightsToCeilings from './weightsToCeilings';
 import findCeilingGreaterThanGenerated from './findCeilingGreaterThanGenerated';
 
-const applyDistribution = ({ distribution, ...props }) => ({
+const applyDistribution = ({ collection, ...props }) => ({
   ...props,
-  ...toDivideBySumOfValuesAndNamesByDescendingWeight(distribution),
+  ...toDivideBySumOfValuesAndNamesByDescendingWeight(collection),
 });
 
 const toWeightsToCeilings = ({ divideBySumOfValues, ...props }) => ({
