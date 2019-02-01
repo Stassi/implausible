@@ -13,23 +13,10 @@ import namesByDescendingWeight from './namesByDescendingWeight';
 import prng from '../prng';
 import sumOfValues from './sumOfValues';
 
-const toGenerated = ({ seed, ...props }) => ({
-  ...props,
-  generated: prng({ seed }),
-});
-
-const toTotalWeight = ({ distribution, ...props }) => ({
-  ...props,
-  distribution,
-  totalWeight: sumOfValues(distribution),
-});
-
-const toNamesByDescendingWeight = ({
-  distribution,
-  ...props,
-}) => ({
+const toNamesByDescendingWeightAndTotalWeight = ({ distribution, ...props }) => ({
   ...props,
   namesByDescendingWeight: namesByDescendingWeight(distribution),
+  totalWeight: sumOfValues(distribution),
 });
 
 // TODO: Partial application
@@ -59,6 +46,11 @@ const toCeilings = ({
   ),
 });
 
+const toGenerated = ({ seed, ...props }) => ({
+  ...props,
+  generated: prng({ seed }),
+});
+
 // TODO: Partial application
 const findCeilingGreaterThanGenerated = ({ ceilings, generated }) => find(
   pipe(
@@ -69,10 +61,9 @@ const findCeilingGreaterThanGenerated = ({ ceilings, generated }) => find(
 );
 
 const weighted = pipe(
-  toGenerated,
-  toTotalWeight,
-  toNamesByDescendingWeight,
+  toNamesByDescendingWeightAndTotalWeight,
   toCeilings,
+  toGenerated,
   findCeilingGreaterThanGenerated,
   prop('name'),
 );
