@@ -97,6 +97,58 @@ prng({
 // output: 0.9798525865189731
 ```
 
+### Generate stochastic weighted sample
+```es6
+weighted({
+  collection: {
+    heads: 1,
+    tails: 1,
+  },
+});
+// example output: 'tails'
+```
+
+#### ...from a specific algorithm
+Refer to the list of PRNG names for valid parameter `{ name }` values.
+
+```es6
+weighted({
+  collection: {
+    heads: 1,
+    tails: 1,
+  },
+  name: 'alea',
+});
+// example output: 'heads'
+```
+
+### Generate deterministic weighted sample
+```es6
+weighted({
+  collection: {
+    heads: 1,
+    tails: 1,
+  },
+  seed: 'hello.',
+});
+// output: 'tails'
+```
+
+#### ...from a specific algorithm
+Refer to the list of PRNG names for valid parameter `{ name }` values.
+
+```es6
+weighted({
+  collection: {
+    heads: 1,
+    tails: 1,
+  },
+  name: 'tychei',
+  seed: 'hello.',
+});
+// output: 'heads'
+```
+
 ## API
 ### List of PRNG names
 The following names of pseudorandom number generators (PRNGs) are valid `String` inputs for the optional `{ name }` parameter:
