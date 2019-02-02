@@ -1,9 +1,9 @@
 import { pipe, prop } from 'ramda';
+import findCeilingGreaterThanGenerated from './findCeilingGreaterThanGenerated';
 import prng from '../prng';
 import toDivideBySumOfValuesAndNamesByDescendingWeight
   from './toDivideBySumOfValuesAndNamesByDescendingWeight';
 import transformWeightsToCeilings from './weightsToCeilings';
-import findCeilingGreaterThanGenerated from './findCeilingGreaterThanGenerated';
 
 const applyDistribution = ({ collection, ...props }) => ({
   ...props,
