@@ -16,7 +16,7 @@ const options = x => Object.assign(
       babel({ exclude: 'node_modules/**' }),
       terser(),
     ],
-  }
+  },
 );
 
 export default [
