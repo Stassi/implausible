@@ -1,6 +1,6 @@
 {
   "name": "implausible",
-  "version": "2.1.10",
+  "version": "2.1.11",
   "description": "Generate pseudorandom numbers with optional seed and choice of algorithm.",
   "keywords": [
     "deterministic",
