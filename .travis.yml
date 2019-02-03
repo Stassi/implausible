@@ -1,0 +1,17 @@
+language: node_js
+cache: npm
+node_js:
+  - 6
+  - 8
+  - 10
+  - 11
+  - node
+
+deploy:
+  provider: npm
+  email: andreas@stassi.net
+  api_key:
+    secure: eEqhQMh4XNhmIXlFrjeVCXCspE7Qw+nAc85/WoIkowLzFC3EOzRqwIIlPBtpI25SvxO+Iq1t9OLajCiC2IknQ+ESO2bvNHdEqwqmssNMDaUmEo0Rgu8KZ8dHjqe+ZByRCS355CxaIBQxDFWlMbY/6pwgRiOY5ydmxwWNVQWWzu9Qs55EMh0vhIiaEd1QN2C8/3AngpgPi/cLaW+IAbiM8/6fJ7t0yTuh+VOMyF7Y4VNZZVc3cwVpmJvKsr2U1bJrjtzzbZYXg84MgKwN3HzdioMuhE91mINj9d3+CWH/AqhpYBeKteoP6OQwRcSB9nj9P2GmDzdjHlUobhM/fvDjojHpkBGkK971zpS4a/kiHH5KdDSffCkYiOTiMFU66ajdG8ij+CsiUJHsXKCO85QCWQ+3MXgJIj7Dy2kvW+cnW8mDfoVGoMJ9hLJHTPQDt6NkD7tTj3ePOwxN62l44gaNYVQoWjLaxYryZeLqbyl+y4cTLaz27ZpChab0VOtbJSqU+xJ7t+umpKSqFX5A0+Cxyem0XKej6zUOtjwLBzXqVb6gEr2CBAHYx/FILQhdn6n+AqBhXLNc3Wm3JGTC2azvXkZclMre3jPe+W0/UQ80SUetqKHzIa0Ho6g/aNF/Vm75yUbagnyBxZv2/lHRHIkO7r4pI5ff8WprQOqZT+oVwOM=
+  on:
+    branch: master
+    tags: true
