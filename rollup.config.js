@@ -4,8 +4,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 
-// rollup-plugin-terser does not support multiple outputs
-const options = x => Object.assign(
+const withInputAndPlugins = x => Object.assign(
   x,
   {
     input: 'src/index.js',
@@ -20,14 +19,14 @@ const options = x => Object.assign(
 );
 
 export default [
-  options({
+  withInputAndPlugins({
     output: {
       file: 'lib/implausible.esm.js',
       format: 'esm',
       sourcemap: true,
     },
   }),
-  options({
+  withInputAndPlugins({
     output: {
       file: 'lib/implausible.umd.js',
       format: 'umd',
