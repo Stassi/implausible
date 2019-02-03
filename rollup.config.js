@@ -18,6 +18,7 @@ const withInputAndPlugins = x => Object.assign(
   },
 );
 
+// TODO: Investigate syntax errors in Node 6
 export default [
   withInputAndPlugins({
     output: {
