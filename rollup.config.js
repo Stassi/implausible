@@ -23,7 +23,7 @@ const rollupConfig = [
     builtins(),
     resolve(),
     commonjs(),
-    babel({exclude: 'node_modules/**'}),
+    babel({ exclude: 'node_modules/**' }),
     terser(),
   ],
 }));
