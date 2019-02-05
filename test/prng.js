@@ -87,22 +87,30 @@ describe('pseudorandom number generator', () => {
     });
 
     describe('arc4', () => {
-      describe('2 stochastic variables', () => {
-        const [ x, y ] = [ prng(), prng() ];
-        it('should be unique', () => {
-          expect(x).to.not.equal(y);
-        })
-      });
-
       describe('default name parameter', () => {
+        const [ x, y ] = [ prng(), prng() ];
+
         it('should have stochastic output', () => {
-          expect(prng()).to.be.within(0, 1);
+          expect(x).to.not.equal(y);
+        });
+
+        it('should be within range [0, 1)', () => {
+          expect(x).to.be.within(0, 1);
+          expect(y).to.be.within(0, 1);
         });
       });
 
       describe('explicit name parameter', () => {
+        const name = 'arc4';
+        const [ x, y ] = [ prng({ name }), prng({ name }) ];
+
         it('should have stochastic output', () => {
-          expect(prng({ name: 'arc4' })).to.be.within(0, 1);
+          expect(x).to.not.equal(y);
+        });
+
+        it('should be within range [0, 1)', () => {
+          expect(x).to.be.within(0, 1);
+          expect(y).to.be.within(0, 1);
         });
       });
     });
