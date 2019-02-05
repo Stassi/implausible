@@ -80,9 +80,13 @@ describe('pseudorandom number generator', () => {
   });
 
   describe('unseeded', () => {
+    const twoPseudorandomNumbers = name => [
+      prng({ name }),
+      prng({ name }),
+    ];
+
     describe('alea', () => {
-      const name = 'alea';
-      const [ x, y ] = [ prng({ name }), prng({ name }) ];
+      const [x, y] = twoPseudorandomNumbers('alea');
 
       it('should have stochastic output', () => {
         expect(x).to.not.equal(y);
@@ -109,8 +113,7 @@ describe('pseudorandom number generator', () => {
       });
 
       describe('explicit name parameter', () => {
-        const name = 'arc4';
-        const [ x, y ] = [ prng({ name }), prng({ name }) ];
+        const [x, y] = twoPseudorandomNumbers('arc4');
 
         it('should have stochastic output', () => {
           expect(x).to.not.equal(y);
@@ -124,8 +127,7 @@ describe('pseudorandom number generator', () => {
     });
 
     describe('tychei', () => {
-      const name = 'tychei';
-      const [ x, y ] = [ prng({ name }), prng({ name }) ];
+      const [x, y] = twoPseudorandomNumbers('tychei');
 
       it('should have stochastic output', () => {
         expect(x).to.not.equal(y);
@@ -138,8 +140,7 @@ describe('pseudorandom number generator', () => {
     });
 
     describe('xor128', () => {
-      const name = 'xor128';
-      const [ x, y ] = [ prng({ name }), prng({ name }) ];
+      const [x, y] = twoPseudorandomNumbers('xor128');
 
       it('should have stochastic output', () => {
         expect(x).to.not.equal(y);
@@ -152,8 +153,7 @@ describe('pseudorandom number generator', () => {
     });
 
     describe('xor4096', () => {
-      const name = 'xor4096';
-      const [ x, y ] = [ prng({ name }), prng({ name }) ];
+      const [x, y] = twoPseudorandomNumbers('xor4096');
 
       it('should have stochastic output', () => {
         expect(x).to.not.equal(y);
@@ -166,8 +166,7 @@ describe('pseudorandom number generator', () => {
     });
 
     describe('xorshift7', () => {
-      const name = 'xorshift7';
-      const [ x, y ] = [ prng({ name }), prng({ name }) ];
+      const [x, y] = twoPseudorandomNumbers('xorshift7');
 
       it('should have stochastic output', () => {
         expect(x).to.not.equal(y);
@@ -180,8 +179,7 @@ describe('pseudorandom number generator', () => {
     });
 
     describe('xorwow', () => {
-      const name = 'xorwow';
-      const [ x, y ] = [ prng({ name }), prng({ name }) ];
+      const [x, y] = twoPseudorandomNumbers('xorwow');
 
       it('should have stochastic output', () => {
         expect(x).to.not.equal(y);
