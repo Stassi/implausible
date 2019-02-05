@@ -13,32 +13,20 @@ const setObjectAsDefaultParameter = (param = {}) => ({ ...param });
 
 const setDefaultName = ({ name = 'arc4', ...props }) => ({ ...props, name });
 
-const propNameEqualsArc4 = propEq(
-  'name',
-  'arc4',
-);
+const propNameEqualsArc4 = propEq('name', 'arc4');
 
-const prngFromSeedProp = pipe(
-  prop('seed'),
-  seedrandom,
-);
+const seedProp = prop('seed');
+const prngFromSeedProp = pipe(seedProp, seedrandom);
 
-const whenSeedPropIsNil = when(
-  propSatisfies(
-    isNil,
-    'seed',
-  ),
-);
-
+const propIsNil = propSatisfies(isNil);
+const whenPropIsNil = pipe(propIsNil, when);
+const whenSeedPropIsNil = whenPropIsNil('seed');
 const generateSeedWhenPropIsNil = whenSeedPropIsNil(({ ...props }) =>
   ({ ...props, seed: seedrandom() }));
 
 const prngFromNameAndSeedProps = ({ name, seed }) => seedrandom[name](seed);
 
-const ensureSeededPrng = pipe(
-  generateSeedWhenPropIsNil,
-  prngFromNameAndSeedProps,
-);
+const ensureSeededPrng = pipe(generateSeedWhenPropIsNil, prngFromNameAndSeedProps);
 
 const selectPrng = ifElse(
   propNameEqualsArc4,
