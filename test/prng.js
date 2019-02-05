@@ -81,8 +81,16 @@ describe('pseudorandom number generator', () => {
 
   describe('unseeded', () => {
     describe('alea', () => {
+      const name = 'alea';
+      const [ x, y ] = [ prng({ name }), prng({ name }) ];
+
       it('should have stochastic output', () => {
-        expect(prng({ name: 'alea' })).to.be.within(0, 1);
+        expect(x).to.not.equal(y);
+      });
+
+      it('should be within range [0, 1)', () => {
+        expect(x).to.be.within(0, 1);
+        expect(y).to.be.within(0, 1);
       });
     });
 
@@ -116,32 +124,72 @@ describe('pseudorandom number generator', () => {
     });
 
     describe('tychei', () => {
+      const name = 'tychei';
+      const [ x, y ] = [ prng({ name }), prng({ name }) ];
+
       it('should have stochastic output', () => {
-        expect(prng({ name: 'tychei' })).to.be.within(0, 1);
+        expect(x).to.not.equal(y);
+      });
+
+      it('should be within range [0, 1)', () => {
+        expect(x).to.be.within(0, 1);
+        expect(y).to.be.within(0, 1);
       });
     });
 
     describe('xor128', () => {
+      const name = 'xor128';
+      const [ x, y ] = [ prng({ name }), prng({ name }) ];
+
       it('should have stochastic output', () => {
-        expect(prng({ name: 'xor128' })).to.be.within(0, 1);
+        expect(x).to.not.equal(y);
+      });
+
+      it('should be within range [0, 1)', () => {
+        expect(x).to.be.within(0, 1);
+        expect(y).to.be.within(0, 1);
       });
     });
 
     describe('xor4096', () => {
+      const name = 'xor4096';
+      const [ x, y ] = [ prng({ name }), prng({ name }) ];
+
       it('should have stochastic output', () => {
-        expect(prng({ name: 'xor4096' })).to.be.within(0, 1);
+        expect(x).to.not.equal(y);
+      });
+
+      it('should be within range [0, 1)', () => {
+        expect(x).to.be.within(0, 1);
+        expect(y).to.be.within(0, 1);
       });
     });
 
     describe('xorshift7', () => {
+      const name = 'xorshift7';
+      const [ x, y ] = [ prng({ name }), prng({ name }) ];
+
       it('should have stochastic output', () => {
-        expect(prng({ name: 'xorshift7' })).to.be.within(0, 1);
+        expect(x).to.not.equal(y);
+      });
+
+      it('should be within range [0, 1)', () => {
+        expect(x).to.be.within(0, 1);
+        expect(y).to.be.within(0, 1);
       });
     });
 
     describe('xorwow', () => {
+      const name = 'xorwow';
+      const [ x, y ] = [ prng({ name }), prng({ name }) ];
+
       it('should have stochastic output', () => {
-        expect(prng({ name: 'xorwow' })).to.be.within(0, 1);
+        expect(x).to.not.equal(y);
+      });
+
+      it('should be within range [0, 1)', () => {
+        expect(x).to.be.within(0, 1);
+        expect(y).to.be.within(0, 1);
       });
     });
   });
