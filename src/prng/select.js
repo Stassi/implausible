@@ -8,7 +8,7 @@ import {
 } from 'ramda';
 import seedrandom from 'seedrandom';
 
-const propNameEqualsArc4 = propEq('name', 'arc4');
+const namePropEqualsArc4 = propEq('name', 'arc4');
 
 const setDefaultAlgorithm = ({ name, ...props }) => ({ ...props, algorithm: seedrandom });
 
@@ -26,7 +26,7 @@ const generateSeedAndSetNamedAlgorithm = pipe(
 );
 
 const select = ifElse(
-  propNameEqualsArc4,
+  namePropEqualsArc4,
   setDefaultAlgorithm,
   generateSeedAndSetNamedAlgorithm,
 );
