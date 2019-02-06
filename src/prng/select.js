@@ -15,7 +15,7 @@ const setDefaultAlgorithm = ({ name, ...props }) => ({ ...props, algorithm: seed
 const propIsNil = propSatisfies(isNil);
 const whenPropIsNil = pipe(propIsNil, when);
 const whenSeedPropIsNil = whenPropIsNil('seed');
-const generateSeed = ({ ...props }) => ({ ...props, seed: seedrandom() });
+const generateSeed = ({ ...props }) => ({ ...props, seed: seedrandom()() });
 const generateSeedWhenPropIsNil = whenSeedPropIsNil(generateSeed);
 
 const setNamedAlgorithm = ({ name, ...props }) => ({ ...props, algorithm: seedrandom[name] });
