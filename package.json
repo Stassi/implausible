@@ -1,6 +1,6 @@
 {
   "name": "implausible",
-  "version": "2.1.13",
+  "version": "2.1.14",
   "description": "Generate pseudorandom numbers with optional seed and choice of algorithm.",
   "keywords": [
     "deterministic",
@@ -40,10 +40,10 @@
     "babel-eslint": "^10.0.1",
     "chai": "^4.1.2",
     "cross-env": "^5.2.0",
-    "eslint": "^5.12.0",
+    "eslint": "^5.13.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.3",
     "mocha": "^5.2.0",
     "rollup": "^1.1.0",
@@ -51,7 +51,7 @@
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-resolve": "^4.0.0",
-    "rollup-plugin-terser": "^4.0.2"
+    "rollup-plugin-terser": "^4.0.4"
   },
   "engines": {
     "node": ">=6.14.0",

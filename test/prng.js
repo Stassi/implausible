@@ -80,60 +80,114 @@ describe('pseudorandom number generator', () => {
   });
 
   describe('unseeded', () => {
+    const twoPseudorandomNumbers = name => [
+      prng({ name }),
+      prng({ name }),
+    ];
+
     describe('alea', () => {
+      const [x, y] = twoPseudorandomNumbers('alea');
+
       it('should have stochastic output', () => {
-        expect(prng({ name: 'alea' })).to.be.within(0, 1);
+        expect(x).to.not.equal(y);
+      });
+
+      it('should be within range [0, 1)', () => {
+        expect(x).to.be.within(0, 1);
+        expect(y).to.be.within(0, 1);
       });
     });
 
     describe('arc4', () => {
-      describe('2 stochastic variables', () => {
-        const [ x, y ] = [ prng(), prng() ];
-        it('should be unique', () => {
-          expect(x).to.not.equal(y);
-        })
-      });
-
       describe('default name parameter', () => {
+        const [ x, y ] = [ prng(), prng() ];
+
         it('should have stochastic output', () => {
-          expect(prng()).to.be.within(0, 1);
+          expect(x).to.not.equal(y);
+        });
+
+        it('should be within range [0, 1)', () => {
+          expect(x).to.be.within(0, 1);
+          expect(y).to.be.within(0, 1);
         });
       });
 
       describe('explicit name parameter', () => {
+        const [x, y] = twoPseudorandomNumbers('arc4');
+
         it('should have stochastic output', () => {
-          expect(prng({ name: 'arc4' })).to.be.within(0, 1);
+          expect(x).to.not.equal(y);
+        });
+
+        it('should be within range [0, 1)', () => {
+          expect(x).to.be.within(0, 1);
+          expect(y).to.be.within(0, 1);
         });
       });
     });
 
     describe('tychei', () => {
+      const [x, y] = twoPseudorandomNumbers('tychei');
+
       it('should have stochastic output', () => {
-        expect(prng({ name: 'tychei' })).to.be.within(0, 1);
+        expect(x).to.not.equal(y);
+      });
+
+      it('should be within range [0, 1)', () => {
+        expect(x).to.be.within(0, 1);
+        expect(y).to.be.within(0, 1);
       });
     });
 
     describe('xor128', () => {
+      const [x, y] = twoPseudorandomNumbers('xor128');
+
       it('should have stochastic output', () => {
-        expect(prng({ name: 'xor128' })).to.be.within(0, 1);
+        expect(x).to.not.equal(y);
+      });
+
+      it('should be within range [0, 1)', () => {
+        expect(x).to.be.within(0, 1);
+        expect(y).to.be.within(0, 1);
       });
     });
 
     describe('xor4096', () => {
+      const [x, y] = twoPseudorandomNumbers('xor4096');
+
       it('should have stochastic output', () => {
-        expect(prng({ name: 'xor4096' })).to.be.within(0, 1);
+        expect(x).to.not.equal(y);
+      });
+
+      it('should be within range [0, 1)', () => {
+        expect(x).to.be.within(0, 1);
+        expect(y).to.be.within(0, 1);
       });
     });
 
     describe('xorshift7', () => {
+      const [x, y] = twoPseudorandomNumbers('xorshift7');
+
       it('should have stochastic output', () => {
-        expect(prng({ name: 'xorshift7' })).to.be.within(0, 1);
+        expect(x).to.not.equal(y);
+      });
+
+      it('should be within range [0, 1)', () => {
+        expect(x).to.be.within(0, 1);
+        expect(y).to.be.within(0, 1);
       });
     });
 
     describe('xorwow', () => {
+      const [x, y] = twoPseudorandomNumbers('xorwow');
+
       it('should have stochastic output', () => {
-        expect(prng({ name: 'xorwow' })).to.be.within(0, 1);
+        expect(x).to.not.equal(y);
+      });
+
+      it('should be within range [0, 1)', () => {
+        expect(x).to.be.within(0, 1);
+        expect(y).to.be.within(0, 1);
       });
     });
   });
