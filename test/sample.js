@@ -21,7 +21,7 @@ describe('pseudorandom samples', () => {
       const { uniform: collection } = collections;
 
       it('should have deterministic output', () => {
-        expect(sample({ collection, seed })).to.equal('debug');
+        expect(sample({ collection, seed })).to.equal('tails');
       });
     });
 
@@ -44,7 +44,7 @@ describe('pseudorandom samples', () => {
             collection,
             name,
             seed,
-          })).to.equal('debug');
+          })).to.equal('heads');
         });
       });
 
