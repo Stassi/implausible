@@ -4,6 +4,7 @@ import prng from '../prng';
 import toDivideBySumOfValuesAndNamesByDescendingWeight
   from './toDivideBySumOfValuesAndNamesByDescendingWeight';
 import transformWeightsToCeilings from './weightsToCeilings';
+import uniformToWeightedWhenDetected from './uniformToWeightedWhenDetected';
 
 const applyDistribution = ({ collection, ...props }) => ({
   ...props,
@@ -46,6 +47,7 @@ const applyCeilings = ({
 const nameProp = prop('name');
 
 const sample = pipe(
+  uniformToWeightedWhenDetected,
   applyDistribution,
   toWeightsToCeilings,
   toCeilings,
