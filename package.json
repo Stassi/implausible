@@ -5,12 +5,15 @@
   "keywords": [
     "deterministic",
     "prng",
+    "probability",
     "pseudorandom",
     "random",
     "sample",
+    "seed",
     "seedable",
     "seeded",
     "stochastic",
+    "uniform",
     "weighted"
   ],
   "license": "MIT",
