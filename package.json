@@ -1,7 +1,7 @@
 {
   "name": "implausible",
   "version": "2.2.0",
-  "description": "Generate pseudorandom numbers with optional seed and choice of algorithm.",
+  "description": "Generate pseudorandom numbers and sample probability distributions with optional seed and choice of algorithm.",
   "keywords": [
     "deterministic",
     "prng",
