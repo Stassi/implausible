@@ -1,16 +1,19 @@
 {
   "name": "implausible",
-  "version": "2.1.14",
-  "description": "Generate pseudorandom numbers with optional seed and choice of algorithm.",
+  "version": "2.2.0",
+  "description": "Generate pseudorandom numbers and sample probability distributions with optional seed and choice of algorithm.",
   "keywords": [
     "deterministic",
     "prng",
+    "probability",
     "pseudorandom",
     "random",
     "sample",
+    "seed",
     "seedable",
     "seeded",
     "stochastic",
+    "uniform",
     "weighted"
   ],
   "license": "MIT",
