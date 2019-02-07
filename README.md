@@ -263,7 +263,7 @@ All parameters are properties of an `Object`.
 | `seed` | `Number`, `String` | `undefined`  (stochastic) | Deterministic when provided, or stochastic when undefined. |
 
 #### Output
-Generates a `String` weighted random sample from a `collection` key.
+Generates a `String` weighted random sample from a `collection` member or key.
 
 ## Credits
 Thanks to David Bau and additional authors for distributing parent package [seedrandom][npm seedrandom] under the MIT license.
