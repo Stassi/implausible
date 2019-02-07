@@ -250,7 +250,7 @@ All parameters are optional properties of an optional `Object`.
 | `seed` | `Number`, `String` | `undefined`  (stochastic) | Deterministic when provided, or stochastic when undefined. |
 
 #### Output
-Generates a `Number` equal to or greater than `0` and less than `1`.
+Generates a `Number` within range: `[0, 1)` (including `0` and excluding `1`).
 
 ### `sample({ collection[, name][, seed] })`
 #### Input
