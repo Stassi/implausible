@@ -98,13 +98,13 @@ prng({
 // output: 0.9798525865189731
 ```
 
-### Stochastic weighted sample
+### Stochastic uniform sample
 ```es6
 sample({
-  collection: {
-    heads: 1,
-    tails: 1,
-  },
+  collection: [
+    'heads',
+    'tails',
+  ],
 });
 // example output: 'tails'
 ```
@@ -114,22 +114,59 @@ Refer to the list of PRNG names for valid parameter `{ name }` values.
 
 ```es6
 sample({
-  collection: {
-    heads: 1,
-    tails: 1,
-  },
+  collection: [
+    'heads',
+    'tails',
+  ],
   name: 'alea',
 });
 // example output: 'heads'
 ```
 
-### Deterministic weighted sample
+### Stochastic weighted sample
 ```es6
 sample({
   collection: {
-    heads: 1,
-    tails: 1,
+    'A-': 6.3,
+    'A+': 35.7,
+    'AB-': 0.6,
+    'AB+': 3.4,
+    'B-': 1.5,
+    'B+': 8.5,
+    'O-': 6.6,
+    'O+': 37.4,
   },
+});
+// example output: 'A+'
+```
+
+#### ...with a specific algorithm
+Refer to the list of PRNG names for valid parameter `{ name }` values.
+
+```es6
+sample({
+  collection: {
+    'A-': 6.3,
+    'A+': 35.7,
+    'AB-': 0.6,
+    'AB+': 3.4,
+    'B-': 1.5,
+    'B+': 8.5,
+    'O-': 6.6,
+    'O+': 37.4,
+  },
+  name: 'alea',
+});
+// example output: 'O+'
+```
+
+### Deterministic uniform sample
+```es6
+sample({
+  collection: [
+    'heads',
+    'tails',
+  ],
   seed: 'hello.',
 });
 // output: 'tails'
@@ -140,14 +177,53 @@ Refer to the list of PRNG names for valid parameter `{ name }` values.
 
 ```es6
 sample({
-  collection: {
-    heads: 1,
-    tails: 1,
-  },
+  collection: [
+    'heads',
+    'tails',
+  ],
   name: 'tychei',
   seed: 'hello.',
 });
 // output: 'heads'
+```
+
+### Deterministic weighted sample
+```es6
+sample({
+  collection: {
+    'A-': 6.3,
+    'A+': 35.7,
+    'AB-': 0.6,
+    'AB+': 3.4,
+    'B-': 1.5,
+    'B+': 8.5,
+    'O-': 6.6,
+    'O+': 37.4,
+  },
+  seed: 'hello.',
+});
+// output: 'AB+'
+```
+
+#### ...with a specific algorithm
+Refer to the list of PRNG names for valid parameter `{ name }` values.
+
+```es6
+sample({
+  collection: {
+    'A-': 6.3,
+    'A+': 35.7,
+    'AB-': 0.6,
+    'AB+': 3.4,
+    'B-': 1.5,
+    'B+': 8.5,
+    'O-': 6.6,
+    'O+': 37.4,
+  },
+  name: 'tychei',
+  seed: 'hello.',
+});
+// output: 'B-'
 ```
 
 ## API
@@ -182,7 +258,7 @@ All parameters are properties of an `Object`.
 
 | parameter | input type(s) | default | description |
 | --------- | ------------- | ------- | ----------- |
-| `collection` (required) | `Object` of `{String:Number}` pairs | | Histogram where the relative probability of sampling a __key__ is determined by its `Number` __value__. |
+| `collection` (required) | `Array` or `Object` of `{String:Number}` pairs | | `Array`: Collection of outcomes with uniform (equally likely) probability distribution (i.e.: coin, dice). `Object`: histogram where the relative probability of sampling a __key__ is determined by its `Number` __value__. |
 | `name` | `String` | `arc4` | Refer to the list of PRNG names for values. |
 | `seed` | `Number`, `String` | `undefined`  (stochastic) | Deterministic when provided, or stochastic when undefined. |
 
