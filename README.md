@@ -258,7 +258,7 @@ All parameters are properties of an `Object`.
 
 | parameter | input type(s) | default | description |
 | --------- | ------------- | ------- | ----------- |
-| `collection` (required) | `Array` or `Object` of `{String:Number}` pairs | | `Array`: Collection of outcomes with uniform (equally likely) probability distribution (i.e.: coin, dice). `Object`: histogram where the relative probability of sampling a __key__ is determined by its `Number` __value__. |
+| `collection` (required) | `Array` or `Object` of `{String:Number}` pairs | | `Array`: collection of outcomes with uniform (equally likely) probability distribution (i.e.: coin, dice). `Object`: histogram where the relative probability of sampling a __key__ is determined by its `Number` __value__. |
 | `name` | `String` | `arc4` | Refer to the list of PRNG names for values. |
 | `seed` | `Number`, `String` | `undefined`  (stochastic) | Deterministic when provided, or stochastic when undefined. |
 
