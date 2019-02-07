@@ -8,9 +8,14 @@ describe('pseudorandom samples', () => {
       'tails',
     ],
     weighted: {
-      x: 4,
-      y: 1,
-      z: 2,
+      'A-': 6.3,
+      'A+': 35.7,
+      'AB-': 0.6,
+      'AB+': 3.4,
+      'B-': 1.5,
+      'B+': 8.5,
+      'O-': 6.6,
+      'O+': 37.4,
     },
   };
 
@@ -29,7 +34,7 @@ describe('pseudorandom samples', () => {
       const { weighted: collection } = collections;
 
       it('should have deterministic output', () => {
-        expect(sample({ collection, seed })).to.equal('y');
+        expect(sample({ collection, seed })).to.equal('A-');
       });
     });
 
@@ -56,7 +61,7 @@ describe('pseudorandom samples', () => {
             collection,
             name,
             seed,
-          })).to.equal('x');
+          })).to.equal('A+');
         });
       });
     });
