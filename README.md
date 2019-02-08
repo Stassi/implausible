@@ -202,7 +202,7 @@ sample({
   },
   seed: 'hello.',
 });
-// output: 'AB+'
+// output: 'A-'
 ```
 
 #### ...with a specific algorithm
@@ -223,7 +223,7 @@ sample({
   name: 'tychei',
   seed: 'hello.',
 });
-// output: 'B-'
+// output: 'A+'
 ```
 
 ## API
