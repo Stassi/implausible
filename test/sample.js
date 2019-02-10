@@ -28,6 +28,17 @@ describe('pseudorandom samples', () => {
       it('should have deterministic output', () => {
         expect(sample({ collection, seed })).to.equal('tails');
       });
+
+      describe('count: 4', () => {
+        // TODO: Rename
+        it('should have named tests', () => {
+          expect(sample({
+            collection,
+            seed,
+            count: 4,
+          })).to.equal('__debug__');
+        });
+      })
     });
 
     describe('weighted probability', () => {
