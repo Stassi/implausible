@@ -1,29 +1,6 @@
 import { pipe, prop } from 'ramda';
 import findCeilingGreaterThanGenerated from './findCeilingGreaterThanGenerated';
 import prng from '../prng';
-import toDivideBySumOfValuesAndNamesByDescendingWeight
-  from './toDivideBySumOfValuesAndNamesByDescendingWeight';
-import transformWeightsToCeilings from './weightsToCeilings';
-import uniformToWeightedWhenDetected from './uniformToWeightedWhenDetected';
-
-const applyDistribution = ({ collection, ...props }) => ({
-  ...props,
-  ...toDivideBySumOfValuesAndNamesByDescendingWeight(collection),
-});
-
-const toWeightsToCeilings = ({ divideBySumOfValues, ...props }) => ({
-  ...props,
-  weightsToCeilings: transformWeightsToCeilings(divideBySumOfValues),
-});
-
-const toCeilings = ({
-  namesByDescendingWeight,
-  weightsToCeilings,
-  ...props
-}) => ({
-  ...props,
-  ceilings: weightsToCeilings(namesByDescendingWeight),
-});
 
 const toGenerated = ({
   name,
@@ -47,10 +24,6 @@ const applyCeilings = ({
 const nameProp = prop('name');
 
 const one = pipe(
-  uniformToWeightedWhenDetected,
-  applyDistribution,
-  toWeightsToCeilings,
-  toCeilings,
   toGenerated,
   toFindCeilingGreaterThanGenerated,
   applyCeilings,
