@@ -46,7 +46,7 @@ const applyCeilings = ({
 
 const nameProp = prop('name');
 
-const sample = pipe(
+const one = pipe(
   uniformToWeightedWhenDetected,
   applyDistribution,
   toWeightsToCeilings,
@@ -57,4 +57,4 @@ const sample = pipe(
   nameProp,
 );
 
-export default sample;
+export default one;

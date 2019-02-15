@@ -1,3 +1,3 @@
-import sample from './sample';
+import sample from './many';
 
 export default sample;
