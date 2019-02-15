@@ -30,15 +30,19 @@ describe('pseudorandom samples', () => {
       });
 
       describe('count: 4', () => {
-        // TODO: Rename
-        it('should have named tests', () => {
+        it('should have deterministic output', () => {
           expect(sample({
             collection,
             seed,
             count: 4,
-          })).to.equal('__debug__');
+          })).to.have.deep.ordered.members([
+            null,
+            'heads',
+            'tails',
+            'heads',
+          ]);
         });
-      })
+      });
     });
 
     describe('weighted probability', () => {
@@ -84,6 +88,25 @@ describe('pseudorandom samples', () => {
 
       it('should have stochastic output', () => {
         expect(sample({ collection })).to.be.a('string');
+      });
+
+      describe('count: 4', () => {
+        it('should have stochastic output', () => {
+          const [
+            a,
+            b,
+            c,
+            d,
+          ] = sample({
+            collection,
+            count: 4,
+          });
+
+          expect(a).to.be.oneOf(collection);
+          expect(b).to.be.oneOf(collection);
+          expect(c).to.be.oneOf(collection);
+          expect(d).to.be.oneOf(collection);
+        });
       });
     });
 
