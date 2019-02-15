@@ -26,7 +26,7 @@ describe('pseudorandom samples', () => {
       const { uniform: collection } = collections;
 
       it('should have deterministic output', () => {
-        expect(sample({ collection, seed })).to.equal('tails');
+        expect(sample({ collection, seed })).to.include('tails');
       });
 
       describe('count: 4', () => {
@@ -36,8 +36,8 @@ describe('pseudorandom samples', () => {
             seed,
             count: 4,
           })).to.have.deep.ordered.members([
-            null,
-            'heads',
+            'tails',
+            'tails',
             'tails',
             'heads',
           ]);
@@ -49,7 +49,7 @@ describe('pseudorandom samples', () => {
       const { weighted: collection } = collections;
 
       it('should have deterministic output', () => {
-        expect(sample({ collection, seed })).to.equal('A-');
+        expect(sample({ collection, seed })).to.include('A-');
       });
     });
 
@@ -64,7 +64,7 @@ describe('pseudorandom samples', () => {
             collection,
             name,
             seed,
-          })).to.equal('heads');
+          })).to.include('heads');
         });
       });
 
@@ -76,7 +76,7 @@ describe('pseudorandom samples', () => {
             collection,
             name,
             seed,
-          })).to.equal('A+');
+          })).to.include('A+');
         });
       });
     });
@@ -87,7 +87,8 @@ describe('pseudorandom samples', () => {
       const { uniform: collection } = collections;
 
       it('should have stochastic output', () => {
-        expect(sample({ collection })).to.be.a('string');
+        const [x] = sample({ collection });
+        expect(x).to.be.a('string');
       });
 
       describe('count: 4', () => {
@@ -114,7 +115,8 @@ describe('pseudorandom samples', () => {
       const { weighted: collection } = collections;
 
       it('should have stochastic output', () => {
-        expect(sample({ collection })).to.be.a('string');
+        const [x] = sample({ collection });
+        expect(x).to.be.a('string');
       });
     });
   });
