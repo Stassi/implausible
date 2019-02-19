@@ -63,7 +63,7 @@ const generateManyUntilCountLimitReached = untilCountLimitReached(generateMany);
 
 const generatedProp = prop('generated');
 
-const many = pipe(
+const samples = pipe(
   uniformToWeightedWhenDetected,
   setDefaultCount,
   setDefaultGenerated,
@@ -74,4 +74,4 @@ const many = pipe(
   generatedProp,
 );
 
-export default many;
+export default samples;

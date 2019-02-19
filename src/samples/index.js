@@ -1,7 +1,4 @@
-// TODO: Establish module naming convention
-import samples from './many';
-
-// TODO: Implement
-const sample = () => '__DEBUG__';
+import sample from './sample';
+import samples from './samples';
 
 export { sample, samples };
