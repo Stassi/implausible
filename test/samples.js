@@ -1,5 +1,6 @@
+import { describe, it } from 'mocha';
 import { expect } from 'chai';
-import { sample } from '../src';
+import { sample, samples } from '../src';
 
 describe('pseudorandom samples', () => {
   const collections = {
@@ -27,6 +28,21 @@ describe('pseudorandom samples', () => {
 
       it('should have deterministic output', () => {
         expect(sample({ collection, seed })).to.equal('tails');
+      });
+
+      describe('count: 4', () => {
+        it('should have deterministic output', () => {
+          expect(samples({
+            collection,
+            seed,
+            count: 4,
+          })).to.have.deep.ordered.members([
+            'tails',
+            'tails',
+            'tails',
+            'heads',
+          ]);
+        });
       });
     });
 
@@ -73,6 +89,25 @@ describe('pseudorandom samples', () => {
 
       it('should have stochastic output', () => {
         expect(sample({ collection })).to.be.a('string');
+      });
+
+      describe('count: 4', () => {
+        it('should have stochastic output', () => {
+          const [
+            a,
+            b,
+            c,
+            d,
+          ] = samples({
+            collection,
+            count: 4,
+          });
+
+          expect(a).to.be.oneOf(collection);
+          expect(b).to.be.oneOf(collection);
+          expect(c).to.be.oneOf(collection);
+          expect(d).to.be.oneOf(collection);
+        });
       });
     });
 
