@@ -253,6 +253,8 @@ All parameters are optional properties of an optional `Object`.
 Generates a `Number` within range: `[0, 1)` (including `0` and excluding `1`).
 
 ### `sample({ collection[, name][, seed] })`
+*See also:* `samples`
+
 #### Input
 All parameters are properties of an `Object`.
 
@@ -264,6 +266,22 @@ All parameters are properties of an `Object`.
 
 #### Output
 Generates a `String` weighted random sample from a `collection` member or key.
+
+### `samples({ collection[, count][, name][, seed] })`
+*See also:* `sample`
+
+#### Input
+All parameters are properties of an `Object`.
+
+| parameter | input type(s) | default | description |
+| --------- | ------------- | ------- | ----------- |
+| `collection` (required) | `Array` or `Object` of `{String:Number}` pairs | | `Array`: collection of outcomes with uniform (equally likely) probability distribution (i.e.: coin, dice). `Object`: histogram where the relative probability of sampling a __key__ is determined by its `Number` __value__. |
+| `count` | `Number` | `1` | Sample size that determines output `Array` length. |
+| `name` | `String` | `arc4` | Refer to the list of PRNG names for values. |
+| `seed` | `Number`, `String` | `undefined`  (stochastic) | Deterministic when provided, or stochastic when undefined. |
+
+#### Output
+Generates an `Array` of weighted random sample `String` from a `collection` member or key, similar to calling `sample` multiple times.
 
 ## Credits
 Thanks to David Bau and additional authors for distributing parent package [seedrandom][npm seedrandom] under the MIT license.
