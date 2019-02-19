@@ -23,6 +23,7 @@ const distributeUniformWeightToCollection = ({ collection, ...props }) => ({
   collection: distributeUniformWeight(collection),
 });
 
+// TODO: Preserve weights of duplicate uniform items
 const uniformToWeightedWhenDetected = when(
   collectionPropIsArray,
   distributeUniformWeightToCollection,
