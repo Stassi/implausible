@@ -1,6 +1,9 @@
 import { expect } from 'chai';
 import { sample } from '../src';
 
+// TODO: Implement
+const samples = () => ([]);
+
 describe('pseudorandom samples', () => {
   const collections = {
     uniform: [
@@ -26,12 +29,12 @@ describe('pseudorandom samples', () => {
       const { uniform: collection } = collections;
 
       it('should have deterministic output', () => {
-        expect(sample({ collection, seed })).to.include('tails');
+        expect(sample({ collection, seed })).to.equal('tails');
       });
 
       describe('count: 4', () => {
         it('should have deterministic output', () => {
-          expect(sample({
+          expect(samples({
             collection,
             seed,
             count: 4,
@@ -49,7 +52,7 @@ describe('pseudorandom samples', () => {
       const { weighted: collection } = collections;
 
       it('should have deterministic output', () => {
-        expect(sample({ collection, seed })).to.include('A-');
+        expect(sample({ collection, seed })).to.equal('A-');
       });
     });
 
@@ -64,7 +67,7 @@ describe('pseudorandom samples', () => {
             collection,
             name,
             seed,
-          })).to.include('heads');
+          })).to.equal('heads');
         });
       });
 
@@ -76,7 +79,7 @@ describe('pseudorandom samples', () => {
             collection,
             name,
             seed,
-          })).to.include('A+');
+          })).to.equal('A+');
         });
       });
     });
@@ -87,8 +90,7 @@ describe('pseudorandom samples', () => {
       const { uniform: collection } = collections;
 
       it('should have stochastic output', () => {
-        const [x] = sample({ collection });
-        expect(x).to.be.a('string');
+        expect(sample({ collection })).to.be.a('string');
       });
 
       describe('count: 4', () => {
@@ -98,7 +100,7 @@ describe('pseudorandom samples', () => {
             b,
             c,
             d,
-          ] = sample({
+          ] = samples({
             collection,
             count: 4,
           });
@@ -115,8 +117,7 @@ describe('pseudorandom samples', () => {
       const { weighted: collection } = collections;
 
       it('should have stochastic output', () => {
-        const [x] = sample({ collection });
-        expect(x).to.be.a('string');
+        expect(sample({ collection })).to.be.a('string');
       });
     });
   });
