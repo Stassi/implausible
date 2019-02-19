@@ -53,12 +53,20 @@ Once installed, declare method imports at the top of each JavaScript file they w
 ### ES2015
 __Recommended__
 ```es6
-import { prng, sample } from 'implausible';
+import {
+  prng,
+  sample,
+  samples,
+} from 'implausible';
 ```
 
 ### CommonJS
 ```javascript
-const { prng, sample } = require('implausible');
+const {
+  prng,
+  sample,
+  samples,
+} = require('implausible');
 ```
 
 ## Usage
