@@ -1,8 +1,5 @@
 import { expect } from 'chai';
-import { sample } from '../src';
-
-// TODO: Implement
-const samples = () => ([]);
+import { sample, samples } from '../src';
 
 describe('pseudorandom samples', () => {
   const collections = {
