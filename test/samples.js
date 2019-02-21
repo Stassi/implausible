@@ -3,8 +3,22 @@ import { expect } from 'chai';
 import { sample, samples } from '../src';
 
 describe('pseudorandom samples', () => {
+  // TODO: Extract JSON
   const collections = {
     uniform: [
+      'heads',
+      'tails',
+    ],
+    uniformWithDuplicates: [
+      'heads',
+      'heads',
+      'heads',
+      'heads',
+      'heads',
+      'heads',
+      'heads',
+      'heads',
+      'heads',
       'heads',
       'tails',
     ],
@@ -40,6 +54,27 @@ describe('pseudorandom samples', () => {
             'tails',
             'tails',
             'tails',
+            'heads',
+          ]);
+        });
+      });
+
+      describe('duplicates', () => {
+        const { uniformWithDuplicates: collection } = collections;
+
+        it('should additively increase probability', () => {
+          expect(samples({
+            collection,
+            seed,
+            count: 8,
+          })).to.have.deep.ordered.members([
+            'tails',
+            'heads',
+            'heads',
+            'heads',
+            'heads',
+            'heads',
+            'heads',
             'heads',
           ]);
         });
