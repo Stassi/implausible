@@ -1,31 +1,31 @@
 import {
-  length,
+  add,
+  map,
+  mergeDeepWith,
   pipe,
   propIs,
-  repeat,
+  reduce,
   when,
-  zipObj,
 } from 'ramda';
 
 const propIsArray = propIs(Array);
 const collectionPropIsArray = propIsArray('collection');
 
-const repeatOne = repeat(1);
-const repeatOneUntilLengthOf = pipe(length, repeatOne);
-
-const distributeUniformWeight = collection => zipObj(
-  collection,
-  repeatOneUntilLengthOf(collection),
+const keyOfWeightOne = map(x => ({ [x]: 1 }));
+const additiveMerge = reduce(
+  mergeDeepWith(add),
+  {},
 );
+const histogram = pipe(keyOfWeightOne, additiveMerge);
 
-const distributeUniformWeightToCollection = ({ collection, ...props }) => ({
+const toHistogram = ({ collection, ...props }) => ({
   ...props,
-  collection: distributeUniformWeight(collection),
+  collection: histogram(collection),
 });
 
 const uniformToWeightedWhenDetected = when(
   collectionPropIsArray,
-  distributeUniformWeightToCollection,
+  toHistogram,
 );
 
 export default uniformToWeightedWhenDetected;

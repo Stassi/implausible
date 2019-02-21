@@ -1,25 +1,9 @@
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
 import { sample, samples } from '../src';
+import collections from './collections.json';
 
 describe('pseudorandom samples', () => {
-  const collections = {
-    uniform: [
-      'heads',
-      'tails',
-    ],
-    weighted: {
-      'A-': 6.3,
-      'A+': 35.7,
-      'AB-': 0.6,
-      'AB+': 3.4,
-      'B-': 1.5,
-      'B+': 8.5,
-      'O-': 6.6,
-      'O+': 37.4,
-    },
-  };
-
   describe('seeded', () => {
     const seed = 'hello.';
 
@@ -40,6 +24,27 @@ describe('pseudorandom samples', () => {
             'tails',
             'tails',
             'tails',
+            'heads',
+          ]);
+        });
+      });
+
+      describe('duplicates', () => {
+        const { uniformWithDuplicates: collection } = collections;
+
+        it('should additively increase probability', () => {
+          expect(samples({
+            collection,
+            seed,
+            count: 8,
+          })).to.have.deep.ordered.members([
+            'tails',
+            'heads',
+            'heads',
+            'heads',
+            'heads',
+            'heads',
+            'heads',
             'heads',
           ]);
         });
