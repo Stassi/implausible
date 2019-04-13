@@ -12,7 +12,7 @@
 
 ## Quick start
 ### RunKit
-RunKit provides one of the least difficult ways to get started:
+RunKit provides one of the most direct ways to get started:
 * [test with RunKit][runkit implausible]
 
 ### CodePen
