@@ -5,6 +5,7 @@ node_js:
   - 8
   - 10
   - 11
+  - 12
   - node
 
 before_deploy: npm run prepublishOnly
@@ -15,4 +16,4 @@ deploy:
     secure: V7y2LLA9Ty/kGxJDGcSjMzktkatuWfVoonf5JquDB6HU2olIDA/Fx2UEii1Zk2RxzEslWIsRQ2kyp3hO5CiEZmS3tTNr6DqmAedskipiELShBr6uUZhShVivD5/8YHTQKvc7Ro68TC03vq9GVLzkIACmBuUlVqj+OfkuT2CTh8Wc9wMclyOosk1l/mNUgRNwFz0zLrc+12hh5vnupC+Z/MvsT6pvC15Pa7XebVCfnSJAO2eu93rO6rFsc/ljUZ8JBogCR+O4S3SP2KjOwUjQVDx0uFSZF+ge+Xp9BK+X8AuUPDT2NLpvHgo0EdGeGsPjTbtmQZS67KmglXxgWdNUS8VjDqGlp/MYmfpvuk2cQLSm3zSKxGiW+JLxvX3A5jx1+rekgMUGOdero3Ddon7MrDJVLZB05U36bsd/WPtmh9T+lokp9HiAkjOZ+r4xYTiGuS9a38MZ+ksCd8QyzFjSrJ03mvHYEKg4/AKfzae4Nun41CSSWnRfLSUwNfSZt44Mrkq9Lv7z/BhZsY9Tejdc8+7Gcej09CeSBJaeG2a6A2EoXLEycV2JxIdWbYl1X4fFww6EVHUdFjnznT3iLa7JXf75b86LTD7G6vqZkWiXpa/ytOoVsr+/gPlfNJRqz7HEYuzzUVczvPr4tj93I24HBJAVdgyih4Tq2Zw1xjOaPtw=
   skip_cleanup: true
   on:
-    node: 10
+    node: 12
