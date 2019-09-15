@@ -5,7 +5,7 @@ import {
   prop,
 } from 'ramda';
 
-const findCeilingGreaterThanGenerated = generated => find(
+const findCeilingGreaterThanGenerated = (generated) => find(
   pipe(
     prop('ceiling'),
     lt(generated),
