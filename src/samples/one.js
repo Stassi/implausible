@@ -18,6 +18,8 @@ const toFindCeilingGreaterThanGenerated = ({ generated, ...props }) => ({
 
 const applyCeilings = ({
   ceilings,
+  // TODO: Resolve variable name conflict with upper scope
+  // eslint-disable-next-line no-shadow
   findCeilingGreaterThanGenerated,
 }) => findCeilingGreaterThanGenerated(ceilings);
 

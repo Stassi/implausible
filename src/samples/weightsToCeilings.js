@@ -12,7 +12,7 @@ const lastCeilingPropOrZero = pipe(
   ceilingPropOrZero,
 );
 
-const weightsToCeilings = divideBySumOfValues => reduce(
+const weightsToCeilings = (divideBySumOfValues) => reduce(
   (acc, { name, weight }) => [
     ...acc,
     {
