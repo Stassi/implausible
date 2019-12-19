@@ -24,6 +24,7 @@
   "main": "./lib/implausible.umd.js",
   "module": "./lib/implausible.esm.js",
   "repository": "github:Stassi/implausible",
+  "sideEffects": false,
   "scripts": {
     "build": "rollup -c",
     "lint": "eslint src",
