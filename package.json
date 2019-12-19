@@ -1,6 +1,6 @@
 {
   "name": "implausible",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Generate pseudorandom numbers and sample probability distributions with optional seed and choice of algorithm.",
   "keywords": [
     "deterministic",
