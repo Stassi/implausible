@@ -1,6 +1,6 @@
 {
   "name": "implausible",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Generate pseudorandom numbers and sample probability distributions with optional seed and choice of algorithm.",
   "keywords": [
     "deterministic",
@@ -24,6 +24,7 @@
   "main": "./lib/implausible.umd.js",
   "module": "./lib/implausible.esm.js",
   "repository": "github:Stassi/implausible",
+  "sideEffects": false,
   "scripts": {
     "build": "rollup -c",
     "lint": "eslint src",
