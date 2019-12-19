@@ -1,6 +1,6 @@
 {
   "name": "implausible",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Generate pseudorandom numbers and sample probability distributions with optional seed and choice of algorithm.",
   "keywords": [
     "deterministic",
@@ -28,7 +28,7 @@
     "build": "rollup -c",
     "lint": "eslint src",
     "prepublishOnly": "npm run build",
-    "test": "cross-env NODE_ENV=test mocha"
+    "test": "mocha"
   },
   "dependencies": {
     "ramda": "^0.26.1",
@@ -41,7 +41,6 @@
     "@babel/register": "^7.7.7",
     "babel-eslint": "^10.0.3",
     "chai": "^4.1.2",
-    "cross-env": "^6.0.3",
     "eslint": "^6.7.2",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.19.1",
@@ -65,5 +64,8 @@
     "node 10",
     "node 12",
     "node 13"
-  ]
+  ],
+  "mocha": {
+    "require": "@babel/register"
+  }
 }
