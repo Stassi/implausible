@@ -28,7 +28,7 @@
     "build": "rollup -c",
     "lint": "eslint src",
     "prepublishOnly": "npm run build",
-    "test": "cross-env NODE_ENV=test mocha"
+    "test": "mocha"
   },
   "dependencies": {
     "ramda": "^0.26.1",
@@ -65,5 +65,8 @@
     "node 10",
     "node 12",
     "node 13"
-  ]
+  ],
+  "mocha": {
+    "require": "@babel/register"
+  }
 }
