@@ -41,6 +41,7 @@
     "@babel/preset-env": "^7.7.7",
     "@babel/register": "^7.7.7",
     "babel-eslint": "^10.0.3",
+    "bl": ">=0.9.5",
     "chai": "^4.1.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
