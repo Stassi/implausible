@@ -3,14 +3,14 @@ import {
   last,
   pipe,
   propOr,
-  reduce,
-} from 'ramda';
+  reduce
+} from 'ramda'
 
-const ceilingPropOrZero = propOr(0, 'ceiling');
+const ceilingPropOrZero = propOr(0, 'ceiling')
 const lastCeilingPropOrZero = pipe(
   last,
-  ceilingPropOrZero,
-);
+  ceilingPropOrZero
+)
 
 const weightsToCeilings = (divideBySumOfValues) => reduce(
   (acc, { name, weight }) => [
@@ -19,11 +19,11 @@ const weightsToCeilings = (divideBySumOfValues) => reduce(
       name,
       ceiling: add(
         lastCeilingPropOrZero(acc),
-        divideBySumOfValues(weight),
-      ),
-    },
+        divideBySumOfValues(weight)
+      )
+    }
   ],
-  [],
-);
+  []
+)
 
-export default weightsToCeilings;
+export default weightsToCeilings

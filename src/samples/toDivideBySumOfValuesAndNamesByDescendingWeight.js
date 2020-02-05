@@ -1,10 +1,10 @@
-import { applySpec } from 'ramda';
-import divideBySumOfValues from './divideBySumOfValues';
-import namesByDescendingWeight from './namesByDescendingWeight';
+import { applySpec } from 'ramda'
+import divideBySumOfValues from './divideBySumOfValues'
+import namesByDescendingWeight from './namesByDescendingWeight'
 
 const toDivideBySumOfValuesAndNamesByDescendingWeight = applySpec({
   divideBySumOfValues,
-  namesByDescendingWeight,
-});
+  namesByDescendingWeight
+})
 
-export default toDivideBySumOfValuesAndNamesByDescendingWeight;
+export default toDivideBySumOfValuesAndNamesByDescendingWeight

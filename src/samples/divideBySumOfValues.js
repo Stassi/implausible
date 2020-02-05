@@ -3,14 +3,14 @@ import {
   flip,
   pipe,
   sum,
-  values,
-} from 'ramda';
+  values
+} from 'ramda'
 
-const divideBy = flip(divide);
+const divideBy = flip(divide)
 const divideBySumOfValues = pipe(
   values,
   sum,
-  divideBy,
-);
+  divideBy
+)
 
-export default divideBySumOfValues;
+export default divideBySumOfValues

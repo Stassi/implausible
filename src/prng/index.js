@@ -1,3 +1,3 @@
-import prng from './prng';
+import prng from './prng'
 
-export default prng;
+export default prng
