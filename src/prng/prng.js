@@ -1,17 +1,17 @@
-import { pipe } from 'ramda';
-import selectPrng from './select';
+import { pipe } from 'ramda'
+import selectPrng from './select'
 
-const setObjectAsDefaultParameter = (param = {}) => ({ ...param });
+const setObjectAsDefaultParameter = (param = {}) => ({ ...param })
 
-const setDefaultName = ({ name = 'arc4', ...props }) => ({ ...props, name });
+const setDefaultName = ({ name = 'arc4', ...props }) => ({ ...props, name })
 
-const applySeed = ({ algorithm, seed }) => algorithm(seed)();
+const applySeed = ({ algorithm, seed }) => algorithm(seed)()
 
 const prng = pipe(
   setObjectAsDefaultParameter,
   setDefaultName,
   selectPrng,
-  applySeed,
-);
+  applySeed
+)
 
-export default prng;
+export default prng

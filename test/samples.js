@@ -1,42 +1,42 @@
-import { describe, it } from 'mocha';
-import { expect } from 'chai';
-import { sample, samples } from '../src';
-import collections from './collections.json';
+import { describe, it } from 'mocha'
+import { expect } from 'chai'
+import { sample, samples } from '../src'
+import collections from './collections.json'
 
 describe('pseudorandom samples', () => {
   describe('seeded', () => {
-    const seed = 'hello.';
+    const seed = 'hello.'
 
     describe('uniform probability', () => {
-      const { uniform: collection } = collections;
+      const { uniform: collection } = collections
 
       it('should have deterministic output', () => {
-        expect(sample({ collection, seed })).to.equal('tails');
-      });
+        expect(sample({ collection, seed })).to.equal('tails')
+      })
 
       describe('count: 4', () => {
         it('should have deterministic output', () => {
           expect(samples({
             collection,
             seed,
-            count: 4,
+            count: 4
           })).to.have.deep.ordered.members([
             'tails',
             'tails',
             'tails',
-            'heads',
-          ]);
-        });
-      });
+            'heads'
+          ])
+        })
+      })
 
       describe('duplicates', () => {
-        const { uniformWithDuplicates: collection } = collections;
+        const { uniformWithDuplicates: collection } = collections
 
         it('should additively increase probability', () => {
           expect(samples({
             collection,
             seed,
-            count: 8,
+            count: 8
           })).to.have.deep.ordered.members([
             'tails',
             'heads',
@@ -45,56 +45,56 @@ describe('pseudorandom samples', () => {
             'heads',
             'heads',
             'heads',
-            'heads',
-          ]);
-        });
-      });
-    });
+            'heads'
+          ])
+        })
+      })
+    })
 
     describe('weighted probability', () => {
-      const { weighted: collection } = collections;
+      const { weighted: collection } = collections
 
       it('should have deterministic output', () => {
-        expect(sample({ collection, seed })).to.equal('A-');
-      });
-    });
+        expect(sample({ collection, seed })).to.equal('A-')
+      })
+    })
 
     describe('custom PRNG', () => {
-      const name = 'tychei';
+      const name = 'tychei'
 
       describe('uniform probability', () => {
-        const { uniform: collection } = collections;
+        const { uniform: collection } = collections
 
         it('should have deterministic output', () => {
           expect(sample({
             collection,
             name,
-            seed,
-          })).to.equal('heads');
-        });
-      });
+            seed
+          })).to.equal('heads')
+        })
+      })
 
       describe('weighted probability', () => {
-        const { weighted: collection } = collections;
+        const { weighted: collection } = collections
 
         it('should have deterministic output', () => {
           expect(sample({
             collection,
             name,
-            seed,
-          })).to.equal('A+');
-        });
-      });
-    });
-  });
+            seed
+          })).to.equal('A+')
+        })
+      })
+    })
+  })
 
   describe('unseeded', () => {
     describe('uniform probability', () => {
-      const { uniform: collection } = collections;
+      const { uniform: collection } = collections
 
       it('should have stochastic output', () => {
-        expect(sample({ collection })).to.be.a('string');
-      });
+        expect(sample({ collection })).to.be.a('string')
+      })
 
       describe('count: 4', () => {
         it('should have stochastic output', () => {
@@ -102,26 +102,26 @@ describe('pseudorandom samples', () => {
             a,
             b,
             c,
-            d,
+            d
           ] = samples({
             collection,
-            count: 4,
-          });
+            count: 4
+          })
 
-          expect(a).to.be.oneOf(collection);
-          expect(b).to.be.oneOf(collection);
-          expect(c).to.be.oneOf(collection);
-          expect(d).to.be.oneOf(collection);
-        });
-      });
-    });
+          expect(a).to.be.oneOf(collection)
+          expect(b).to.be.oneOf(collection)
+          expect(c).to.be.oneOf(collection)
+          expect(d).to.be.oneOf(collection)
+        })
+      })
+    })
 
     describe('weighted probability', () => {
-      const { weighted: collection } = collections;
+      const { weighted: collection } = collections
 
       it('should have stochastic output', () => {
-        expect(sample({ collection })).to.be.a('string');
-      });
-    });
-  });
-});
+        expect(sample({ collection })).to.be.a('string')
+      })
+    })
+  })
+})

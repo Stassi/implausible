@@ -1,8 +1,8 @@
-import prng from './prng';
-import { sample, samples } from './samples';
+import prng from './prng'
+import { sample, samples } from './samples'
 
 export {
   prng,
   sample,
-  samples,
-};
+  samples
+}

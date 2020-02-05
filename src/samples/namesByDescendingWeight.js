@@ -4,19 +4,19 @@ import {
   pipe,
   prop,
   sort,
-  toPairs,
-} from 'ramda';
+  toPairs
+} from 'ramda'
 
 const descendingSortByProp = pipe(
   prop,
   descend,
-  sort,
-);
+  sort
+)
 
 const namesByDescendingWeight = pipe(
   toPairs,
   map(([name, weight]) => ({ name, weight })),
-  descendingSortByProp('weight'),
-);
+  descendingSortByProp('weight')
+)
 
-export default namesByDescendingWeight;
+export default namesByDescendingWeight

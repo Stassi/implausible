@@ -3,27 +3,27 @@ import {
   length,
   pipe,
   prop,
-  until,
-} from 'ramda';
-import generateOne from './one';
-import prng from '../prng';
+  until
+} from 'ramda'
+import generateOne from './one'
+import prng from '../prng'
 import toDivideBySumOfValuesAndNamesByDescendingWeight
-  from './toDivideBySumOfValuesAndNamesByDescendingWeight';
-import transformWeightsToCeilings from './weightsToCeilings';
-import uniformToWeightedWhenDetected from './uniformToWeightedWhenDetected';
+  from './toDivideBySumOfValuesAndNamesByDescendingWeight'
+import transformWeightsToCeilings from './weightsToCeilings'
+import uniformToWeightedWhenDetected from './uniformToWeightedWhenDetected'
 
-const setDefaultCount = ({ count = 1, ...props }) => ({ ...props, count });
-const setDefaultGenerated = ({ generated = [], ...props }) => ({ ...props, generated });
+const setDefaultCount = ({ count = 1, ...props }) => ({ ...props, count })
+const setDefaultGenerated = ({ generated = [], ...props }) => ({ ...props, generated })
 
 const applyDistribution = ({ collection, ...props }) => ({
   ...props,
-  ...toDivideBySumOfValuesAndNamesByDescendingWeight(collection),
-});
+  ...toDivideBySumOfValuesAndNamesByDescendingWeight(collection)
+})
 
 const toWeightsToCeilings = ({ divideBySumOfValues, ...props }) => ({
   ...props,
-  weightsToCeilings: transformWeightsToCeilings(divideBySumOfValues),
-});
+  weightsToCeilings: transformWeightsToCeilings(divideBySumOfValues)
+})
 
 const toCeilings = ({
   namesByDescendingWeight,
@@ -31,22 +31,22 @@ const toCeilings = ({
   ...props
 }) => ({
   ...props,
-  ceilings: weightsToCeilings(namesByDescendingWeight),
-});
+  ceilings: weightsToCeilings(namesByDescendingWeight)
+})
 
 const countLimitReached = ({ count, generated }) => equals(
   count,
-  length(generated),
-);
-const untilCountLimitReached = until(countLimitReached);
+  length(generated)
+)
+const untilCountLimitReached = until(countLimitReached)
 
 const toGenerated = ({ generated, ...props }) => ({
   ...props,
   generated: [
     ...generated,
-    generateOne({ ...props }),
-  ],
-});
+    generateOne({ ...props })
+  ]
+})
 
 const evolveSeedProp = ({
   name,
@@ -55,13 +55,13 @@ const evolveSeedProp = ({
 }) => ({
   ...props,
   name,
-  seed: prng({ name, seed }),
-});
+  seed: prng({ name, seed })
+})
 
-const generateMany = pipe(toGenerated, evolveSeedProp);
-const generateManyUntilCountLimitReached = untilCountLimitReached(generateMany);
+const generateMany = pipe(toGenerated, evolveSeedProp)
+const generateManyUntilCountLimitReached = untilCountLimitReached(generateMany)
 
-const generatedProp = prop('generated');
+const generatedProp = prop('generated')
 
 const samples = pipe(
   uniformToWeightedWhenDetected,
@@ -71,7 +71,7 @@ const samples = pipe(
   toWeightsToCeilings,
   toCeilings,
   generateManyUntilCountLimitReached,
-  generatedProp,
-);
+  generatedProp
+)
 
-export default samples;
+export default samples

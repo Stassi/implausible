@@ -2,21 +2,21 @@ import {
   countBy,
   identity,
   propIs,
-  when,
-} from 'ramda';
+  when
+} from 'ramda'
 
-const propIsArray = propIs(Array);
-const collectionPropIsArray = propIsArray('collection');
+const propIsArray = propIs(Array)
+const collectionPropIsArray = propIsArray('collection')
 
-const histogram = countBy(identity);
+const histogram = countBy(identity)
 const toHistogram = ({ collection, ...props }) => ({
   ...props,
-  collection: histogram(collection),
-});
+  collection: histogram(collection)
+})
 
 const uniformToWeightedWhenDetected = when(
   collectionPropIsArray,
-  toHistogram,
-);
+  toHistogram
+)
 
-export default uniformToWeightedWhenDetected;
+export default uniformToWeightedWhenDetected

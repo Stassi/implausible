@@ -2,14 +2,14 @@ import {
   find,
   lt,
   pipe,
-  prop,
-} from 'ramda';
+  prop
+} from 'ramda'
 
 const findCeilingGreaterThanGenerated = (generated) => find(
   pipe(
     prop('ceiling'),
-    lt(generated),
-  ),
-);
+    lt(generated)
+  )
+)
 
-export default findCeilingGreaterThanGenerated;
+export default findCeilingGreaterThanGenerated
