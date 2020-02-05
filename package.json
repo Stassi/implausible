@@ -27,7 +27,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "rollup -c",
-    "lint": "eslint src",
+    "lint": "standard",
     "prepublishOnly": "npm run build",
     "test": "npm run lint && mocha"
   },
@@ -45,16 +45,12 @@
     "babel-eslint": "^10.0.3",
     "bl": ">=0.9.5",
     "chai": "^4.1.2",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.18.3",
     "mocha": "^7.0.1",
     "rollup": "^1.31.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-terser": "^5.2.0"
+    "rollup-plugin-terser": "^5.2.0",
+    "standard": "^14.3.1"
   },
   "engines": {
     "node": ">=8.17.0",
