@@ -1,7 +1,7 @@
 import babel from 'rollup-plugin-babel'
-import builtins from 'rollup-plugin-node-builtins'
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
+import nodePolyfills from 'rollup-plugin-node-polyfills'
 import { terser } from 'rollup-plugin-terser'
 
 const rollupConfig = [
@@ -20,7 +20,7 @@ const rollupConfig = [
   output,
   input: 'src/index.js',
   plugins: [
-    builtins(),
+    nodePolyfills(),
     resolve(),
     commonjs(),
     babel({ exclude: 'node_modules/**' }),
