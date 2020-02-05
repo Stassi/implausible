@@ -43,7 +43,6 @@
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "babel-eslint": "^10.0.3",
-    "bl": ">=0.9.5",
     "chai": "^4.1.2",
     "mocha": "^7.0.1",
     "rollup": "^1.31.0",
