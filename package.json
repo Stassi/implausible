@@ -29,7 +29,7 @@
     "build": "rollup -c",
     "lint": "eslint src",
     "prepublishOnly": "npm run build",
-    "test": "mocha"
+    "test": "npm run lint && mocha"
   },
   "dependencies": {
     "ramda": "^0.27.0",
