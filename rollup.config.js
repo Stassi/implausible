@@ -16,7 +16,7 @@ const rollupConfig = [
     name: 'implausible',
     sourcemap: true
   }
-].map((output) => ({
+].map(output => ({
   output,
   input: 'src/index.js',
   plugins: [
