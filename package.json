@@ -60,6 +60,17 @@
     "node": ">=8.17.0",
     "npm": ">=6.13.4"
   },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "corejs": "3",
+          "useBuiltIns": "entry"
+        }
+      ]
+    ]
+  },
   "browserslist": [
     "defaults",
     "node 8",
