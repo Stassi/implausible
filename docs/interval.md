@@ -5,7 +5,7 @@
 Generates pseudorandom numbers `[0, 1)` from `0` to `1` that may include `0` but not `1`.
 
 ### Example usage
-```ecmascript 6
+```javascript
 interval()
 // => { '0': 0.68023907735 }
 
@@ -19,7 +19,7 @@ interval({ generations: [0] })
 // => { '0': 0.16156177243 }
 ```
 
-```ecmascript 6
+```javascript
 interval({ generations: [0, 1, 2] })
 // => {
 //   '0': 0.8852892152
@@ -35,7 +35,7 @@ interval({ generations: [0, 1, 2] })
 // }
 ```
 
-```ecmascript 6
+```javascript
 interval({ prng: 'alea' })
 // => { '0': 0.786272435926 }
 
@@ -43,7 +43,7 @@ interval({ prng: 'alea' })
 // => { '0': 0.11158582672 }
 ```
 
-```ecmascript 6
+```javascript
 interval({ seed: 'same result' })
 // => { '0': 0.112977563254 }
 
@@ -51,7 +51,7 @@ interval({ seed: 'same result' })
 // => { '0': 0.112977563254 }
 ```
 
-```ecmascript 6
+```javascript
 interval({
   prng: 'alea',
   seed: 'same result'
@@ -65,7 +65,7 @@ interval({
 // => { '0': 0.762595455 }
 ```
 
-```ecmascript 6
+```javascript
 interval({
   generations: [0, 1, 5],
   prng: 'alea'
@@ -87,7 +87,7 @@ interval({
 // }
 ```
 
-```ecmascript 6
+```javascript
 interval({
   generations: [0, 1, 5],
   seed: 'same result'
@@ -109,7 +109,7 @@ interval({
 // }
 ```
 
-```ecmascript 6
+```javascript
 interval({
   generations: [0, 1, 5],
   prng: 'alea',
