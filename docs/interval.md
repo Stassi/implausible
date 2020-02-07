@@ -1,34 +1,61 @@
 ## interval
 * `interval()`
-* `interval({ [prng][, seed] })`
+* `interval({ [generations][, prng][, seed] })`
 
-Generates a number `[0, 1)` from `0` to `1` that may include `0` but not `1`, and a chainable `evolve()` function that determines new generations.
+Generates numbers `[0, 1)` from `0` to `1` that may include `0` but not `1`.
 
-### Example
+### Examples
+#### Default options
 ```ecmascript 6
-// Default options
-interval() // => ({
-//   evolve(),
-//   value: 0.6802390773574
-// })
+interval()
+// => { '0': 0.6802390773574 }
+```
 
-// Optional parameters provided
+```ecmascript 6
+interval()[0]
+// => 0.6802390773574
+```
+
+#### Optional parameters
+```ecmascript 6
 interval({
+  generations, // [0]
   prng, // prng: 'arc4'
   seed // seed: 'can be a sentence'
-}) // => ({
-//   evolve(),
-//   value: 0.71265450034
-// })
+})
+// => { '0': 0.71265450034 }
+```
 
-// generations 0 through 3
-interval() // generation 0
-  .evolve() // generation 1
-  .evolve() // generation 2
-  .evolve() // generation 3
+#### Multiple generations
+```ecmascript 6
+interval({
+  prng, // prng: 'arc4'
+  seed, // seed: 'can be a sentence'
+  generations: [0, 1, 3]
+})
+// => ({
+//   '0': 0.71265450034
+//   '1': 0.25783245436
+//   '3': 0.34626348620
+// })
 ```
 
 ### Input
+* generations
+* prng
+* seed
+
+#### generations
+| | |
+| --- | --- |
+| **Property** | `generations` |
+| **Type** | `Array` of `Number` |
+| **Default value** | `[0]` |
+
+Providing a set of numbers to `generations` will produce `{ [gen]: [val], ... }` output, where generated values are indexed by generation number keys.
+
+Smaller integers require less time to compute.
+
 #### prng
 | | |
 | --- | --- |
@@ -50,23 +77,23 @@ Providing a `seed` input generates deterministic, predictable output.
 Not providing a `seed` input generates stochastic or unpredictable, statistically random output.
 
 ### Output
-#### evolve
 | | |
 | --- | --- |
-| **Property** | `evolve` |
-| **Type** | `Function` |
-| **Arguments** | `0` |
-| **Output** | `{ evolve, value }` |
+| **Type** | `Object` |
+| **Properties** | `{ generation: value[, ...] }` |
 
-Creates a new generation of `{ evolve, value }` properties where `value` is determined by the previous generation's `seed` input.
+Generates values indexed by the subset of input `generations`, where each value is determined by the previous generation's value.
+
+#### generation
+| | |
+| --- | --- |
+| **Type** | `Number` as `Object` key |
+| **Range** | `[0, Infinity)` |
 
 #### value
 | | |
 | --- | --- |
-| **Property** | `value` |
-| **Type** | `Number` |
-| **Output** | `[0, 1)` |
-| **Minumum** | `0` (inclusive) |
-| **Maximum** | `1` (exclusive) |
+| **Type** | `Number` as `Object` value |
+| **Range** | `[0, 1)` |
 
 Creates a number `[0, 1)` from `0` to `1` that may include `0` but not `1`.
