@@ -134,10 +134,6 @@ interval({
 ```
 
 ### Input
-* generations
-* prng
-* seed
-
 #### generations
 | | |
 | --- | --- |
