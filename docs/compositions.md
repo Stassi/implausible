@@ -8,6 +8,8 @@
 ##### Interface
 * `number()`
 * `number(seed)`
+* **TODO: Document `prng`**
+* `number({ [prng][, seed] })`
 
 ##### Random
 Generate a random number.
