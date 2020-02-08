@@ -1,6 +1,13 @@
 ## interval
 * `interval()`
-* `interval({ [generations][, prng][, seed] })`
+* **TODO: Document**
+* `interval({ ... })`
+  * ~~count~~
+  * `generations`
+  * `prng`
+  * ~~range~~
+  * ~~toPairs~~
+  * `seed`
 
 Generates pseudorandom numbers `[0, 1)` from `0` to `1` that may include `0` but not `1`.
 
@@ -12,29 +19,58 @@ Generate a random number.
 interval()
 // => { '0': 0.68023907735 }
 
-interval()
-// => { '0': 0.43572663456 }
+interval({ count: 1 })
+// => { '0': 0.36872358435 }
 
 interval({ generations: [0] })
 // => { '0': 0.05671275166 }
 
-interval({ generations: [0] })
-// => { '0': 0.16156177243 }
+interval({
+  range: {
+    maximum: 1
+  }
+})
+// => { '0': 0.67230265174 }
+
+interval({ toPairs: true })
+// => [0.43572663456]
+
 ```
 
 Generate many random numbers.
 
 ```javascript
+interval({ count: 3 })
+// => {
+//   '0': 0.17435435355
+//   '1': 0.33342673333
+//   '2': 0.08767234999
+// }
+
+interval({
+  count: 3,
+  toPairs: true
+})
+// => [
+//   0.41048516143
+//   0.99257324234
+//   0.91413123341
+// ]
+
 interval({ generations: [0, 1, 2] })
 // => {
-//   '0': 0.8852892152
+//   '0': 0.88528921522
 //   '1': 0.42322313123
 //   '2': 0.97275714329
 // }
 
-interval({ generations: [0, 1, 2] })
+interval({
+  range: {
+    maximum: 3
+  }
+})
 // => {
-//   '0': 0.4671571356
+//   '0': 0.46715713562
 //   '1': 0.75716121145
 //   '2': 0.23687272543
 // }
@@ -49,23 +85,26 @@ interval({
 })
 // => {
 //   '0': 0.24537892543
-//   '1': 0.8237123516
+//   '1': 0.82371235163
 //   '5': 0.83464561245
 // }
 
 interval({
   generations: [0, 1, 5],
-  prng: 'alea'
+  prng: 'alea',
+  toPairs: true
 })
-// => {
-//   '0': 0.7264253735
-//   '1': 0.7838716214
-//   '5': 0.99791141516
-// }
+// => [
+//   0.7264253735
+//   0.7838716214
+//   0.9979114151
+// ]
 ```
 
 #### Deterministic number generation
 Remove randomness by providing a `seed`.
+
+**TODO: `count`, `range`, `toPairs`**
 
 ```javascript
 interval({ seed: 'same result' })
