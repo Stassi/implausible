@@ -32,6 +32,12 @@ const number = ({ prng, seed }) => interval({ prng, seed })[0]
 ```
 
 #### manyNumbers
+**TODO: May be better implemented by a function that converts interval's Object to Array, reducing generations to indices**
+
+**TODO: Extend interval's interface to include native asArray or asObject behavior**
+
+**TODO: Utility function implements range natively via range attribute that takes precedence over generations**
+
 ##### Interface
 * `manyNumbers(count)`
 * `manyNumbers({ count[, prng][, seed] })`
