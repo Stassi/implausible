@@ -23,7 +23,7 @@ Generate a non-random number.
 
 ```javascript
 const number = seed => interval({ seed })[0]
-// number(seed) => Number
+// => Number
 ```
 
 ```javascript
