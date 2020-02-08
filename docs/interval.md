@@ -144,7 +144,9 @@ Smaller values require less time to compute.
 | **Type** | `String` |
 | **Default value** | `arc4` |
 
-Valid inputs:
+Providing a **P**seudo**r**andom **N**umber **G**enerator (**PRNG**) name as input changes the algorithm chosen from `seedrandom`.
+
+##### Algorithm names
 * `alea`
 * `arc4` (default)
 * `tychei`
@@ -152,8 +154,6 @@ Valid inputs:
 * `xor4096`
 * `xorshift7`
 * `xorwow`
-
-Providing a **P**seudo**r**andom **N**umber **G**enerator (**PRNG**) name as input changes the algorithm chosen from `seedrandom`.
 
 #### seed
 | | |
