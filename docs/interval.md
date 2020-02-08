@@ -4,7 +4,10 @@
 
 Generates pseudorandom numbers `[0, 1)` from `0` to `1` that may include `0` but not `1`.
 
-### Example usage
+### Usage
+#### Random number generation
+Generate a random number.
+
 ```javascript
 interval()
 // => { '0': 0.68023907735 }
@@ -19,51 +22,25 @@ interval({ generations: [0] })
 // => { '0': 0.16156177243 }
 ```
 
+Generate many random numbers.
+
 ```javascript
 interval({ generations: [0, 1, 2] })
 // => {
 //   '0': 0.8852892152
 //   '1': 0.42322313123
-//   '5': 0.97275714329
+//   '2': 0.97275714329
 // }
 
 interval({ generations: [0, 1, 2] })
 // => {
 //   '0': 0.4671571356
 //   '1': 0.75716121145
-//   '5': 0.23687272543
+//   '2': 0.23687272543
 // }
 ```
 
-```javascript
-interval({ prng: 'alea' })
-// => { '0': 0.786272435926 }
-
-interval({ prng: 'alea' })
-// => { '0': 0.11158582672 }
-```
-
-```javascript
-interval({ seed: 'same result' })
-// => { '0': 0.112977563254 }
-
-interval({ seed: 'same result' })
-// => { '0': 0.112977563254 }
-```
-
-```javascript
-interval({
-  prng: 'alea',
-  seed: 'same result'
-})
-// => { '0': 0.762595455 }
-
-interval({
-  prng: 'alea',
-  seed: 'same result'
-})
-// => { '0': 0.762595455 }
-```
+Change the algorithm that generates numbers.
 
 ```javascript
 interval({
@@ -87,6 +64,19 @@ interval({
 // }
 ```
 
+#### Deterministic number generation
+Remove randomness by providing a `seed`.
+
+```javascript
+interval({ seed: 'same result' })
+// => { '0': 0.112977563254 }
+
+interval({ seed: 'same result' })
+// => { '0': 0.112977563254 }
+```
+
+Generate many non-random numbers.
+
 ```javascript
 interval({
   generations: [0, 1, 5],
@@ -108,6 +98,8 @@ interval({
 //   '5': 0.267645415148
 // }
 ```
+
+Change the algorithm that generates non-random numbers.
 
 ```javascript
 interval({
@@ -143,7 +135,7 @@ interval({
 
 Providing a set of numbers to `generations` will produce `{ [gen]: [val], ... }` output, where generated values are indexed by generation number keys.
 
-Smaller integers require less time to compute.
+Smaller values require less time to compute.
 
 #### prng
 | | |
@@ -180,7 +172,7 @@ Not providing a `seed` input generates stochastic or unpredictable, statisticall
 | **Type** | `Object` |
 | **Properties** | `{ generation: value[, ...] }` |
 
-Generates values indexed by the subset of input `generations`, where each value is determined by the previous generation's value.
+Output is indexed by the subset of input `generations`, where each value is determined by the previous generation's value.
 
 #### generation
 | | |
