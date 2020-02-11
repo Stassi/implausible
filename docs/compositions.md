@@ -2,7 +2,6 @@
 **TODO: Implement**
 
 * `number`
-* `manyNumbers`
 
 #### number
 ##### Interface
@@ -29,69 +28,4 @@ const number = seed => interval({ seed })[0]
 ```javascript
 const number = ({ prng, seed }) => interval({ prng, seed })[0]
 // => Number
-```
-
-#### manyNumbers
-**TODO: May be better implemented by a function that converts interval's Object to Array, reducing generations to indices**
-
-**TODO: Extend interval's interface to include native asArray or asObject behavior**
-
-**TODO: Utility function implements range natively via range attribute that takes precedence over generations**
-
-##### Interface
-* `manyNumbers(count)`
-* `manyNumbers({ count[, prng][, seed] })`
-
-##### Random
-Generate many random numbers.
-
-```javascript
-const manyNumbers = count => interval({
-  generations: range({
-    maximum: count
-  })
-})
-// => Array of size: count
-
-const manyNumbers = ({
-  count,
-  prng,
-}) => interval({
-  prng,
-  generations: range({
-    maximum: count
-  })
-})
-// => Array of size: count
-```
-
-##### Non-random
-Generate many non-random numbers.
-
-```javascript
-const manyNumbers = ({
-  count,
-  seed
-}) => interval({
-  seed,
-  generations: range({
-    maximum: count
-  })
-})
-// => Array of size: count
-```
-
-```javascript
-const manyNumbers = ({
-  count,
-  prng,
-  seed
-}) => interval({
-  prng,
-  seed,
-  generations: range({
-    maximum: count
-  })
-})
-// => Array of size: count
 ```
