@@ -1,13 +1,11 @@
 ## interval
 * `interval()`
-* **TODO: Document**
 * `interval({ ... })`
-  * ~~count~~
+  * `count`
   * `generations`
   * `prng`
-  * ~~range~~
-  * ~~toPairs~~
   * `seed`
+  * `toPairs`
 
 Generates pseudorandom numbers `[0, 1)` from `0` to `1` that may include `0` but not `1`.
 
@@ -17,62 +15,53 @@ Generate a random number.
 
 ```javascript
 interval()
-// => { '0': 0.68023907735 }
+// => [0.68023907735]
 
 interval({ count: 1 })
-// => { '0': 0.36872358435 }
-
-interval({ generations: [0] })
-// => { '0': 0.05671275166 }
-
-interval({
-  range: {
-    maximum: 1
-  }
-})
-// => { '0': 0.67230265174 }
+// => [0.36872358435]
 
 interval({ toPairs: true })
-// => [0.43572663456]
+// => { '0': 0.67230265174 }
 
+interval({
+  generations: [0],
+  toPairs: true
+})
+// => { '0': 0.05671275166 }
 ```
 
 Generate many random numbers.
 
 ```javascript
 interval({ count: 3 })
+// => [
+//   0.41048516143,
+//   0.99257324234,
+//   0.91413123341
+// ]
+
+interval({
+  generations: [0, 1, 2],
+  toPairs: true
+})
 // => {
-//   '0': 0.17435435355
-//   '1': 0.33342673333
+//   '0': 0.17435435355,
+//   '1': 0.33342673333,
 //   '2': 0.08767234999
 // }
 
 interval({
-  count: 3,
+  generations: [
+    [0, 2],
+    [3, 5]
+  ],
   toPairs: true
 })
-// => [
-//   0.41048516143
-//   0.99257324234
-//   0.91413123341
-// ]
-
-interval({ generations: [0, 1, 2] })
 // => {
-//   '0': 0.88528921522
-//   '1': 0.42322313123
-//   '2': 0.97275714329
-// }
-
-interval({
-  range: {
-    maximum: 3
-  }
-})
-// => {
-//   '0': 0.46715713562
-//   '1': 0.75716121145
-//   '2': 0.23687272543
+//   '0': 0.46715713562,
+//   '1': 0.75716121145,
+//   '3': 0.23687272543,
+//   '4': 0.22561786414
 // }
 ```
 
@@ -80,37 +69,44 @@ Change the algorithm that generates numbers.
 
 ```javascript
 interval({
-  generations: [0, 1, 5],
+  count: 3,
   prng: 'alea'
 })
-// => {
-//   '0': 0.24537892543
-//   '1': 0.82371235163
-//   '5': 0.83464561245
-// }
+// => [
+//   0.7264253735,
+//   0.7838716214,
+//   0.9979114151
+// ]
 
 interval({
-  generations: [0, 1, 5],
+  count: 3,
   prng: 'alea',
   toPairs: true
 })
-// => [
-//   0.7264253735
-//   0.7838716214
-//   0.9979114151
-// ]
+// => {
+//   '0': 0.24537892543,
+//   '1': 0.82371235163,
+//   '5': 0.83464561245
+// }
 ```
 
 #### Deterministic number generation
 Remove randomness by providing a `seed`.
 
-**TODO: `count`, `range`, `toPairs`**
-
 ```javascript
 interval({ seed: 'same result' })
-// => { '0': 0.112977563254 }
+// => [0.112977563254]
 
-interval({ seed: 'same result' })
+interval({
+  count: 1,
+  seed: 'same result'
+})
+// => [0.112977563254]
+
+interval({
+  seed: 'same result',
+  toPairs: true
+})
 // => { '0': 0.112977563254 }
 ```
 
@@ -118,23 +114,45 @@ Generate many non-random numbers.
 
 ```javascript
 interval({
-  generations: [0, 1, 5],
+  count: 3,
   seed: 'same result'
 })
+// => [
+//   0.112977563254,
+//   0.352345345256,
+//   0.775475616234
+// ]
+
+interval({
+  generations: [0, 1, 5],
+  seed: 'same result',
+  toPairs: true
+})
 // => {
-//   '0': 0.112977563254
-//   '1': 0.352345345256
+//   '0': 0.112977563254,
+//   '1': 0.352345345256,
 //   '5': 0.267645415148
 // }
 
 interval({
-  generations: [0, 1, 5],
-  seed: 'same result'
+  count: 3,
+  generations: [
+    5,
+    15,
+    [10, 13]
+  ],
+  seed: 'same result',
+  toPairs: true
 })
 // => {
-//   '0': 0.112977563254
-//   '1': 0.352345345256
-//   '5': 0.267645415148
+//   '0': 0.112977563254,
+//   '1': 0.352345345256,
+//   '3': 0.775475616234,
+//   '5': 0.267645415148,
+//   '10': 0.689326703275,
+//   '11': 0.126267927934,
+//   '12': 0.390469087267,
+//   '15': 0.099857690156
 // }
 ```
 
@@ -165,14 +183,27 @@ interval({
 ```
 
 ### Input
+#### count
+| | |
+| --- | --- |
+| **Property** | `count` |
+| **Type** | `Number` |
+| **Default value** | `1` |
+
+Providing a number determines the first sequential generations starting at `0` in increments of `1`.
+
+`count: 1` is equivalent to `generations: [0]`.
+
 #### generations
 | | |
 | --- | --- |
 | **Property** | `generations` |
-| **Type** | `Array` of `Number` |
+| **Type** | `Array` of (`Number` or `Array`-enclosed `Number` pair `[x, y]`) |
 | **Default value** | `[0]` |
 
-Providing a set of numbers to `generations` will produce `{ [gen]: [val], ... }` output, where generated values are indexed by generation number keys.
+Providing a set of numbers to `generations` produces `{ [gen]: [val], ... }` output, where generated values are indexed by generation number keys.
+
+Providing `[x, y]` pairs of numbers to `generations` produces ranges of generation numbers. These range pairs can be combined with individual numbers as input.
 
 Smaller values require less time to compute.
 
@@ -205,7 +236,24 @@ Providing a `seed` input generates deterministic, predictable output.
 
 Not providing a `seed` input generates stochastic or unpredictable, statistically random output.
 
+#### toPairs
+| | |
+| --- | --- |
+| **Property** | `toPairs` |
+| **Type** | `Boolean` |
+| **Default value** | `false` |
+
+When enabled, outputs key-labeled pairs of generations.
+
+When disabled, outputs only the set of values in generation-ascending order.
+
 ### Output
+| | |
+| --- | --- |
+| **Type** | `Array` of `Number` |
+| **Range** | `[0, 1)` |
+
+#### toPairs: true
 | | |
 | --- | --- |
 | **Type** | `Object` |
@@ -213,13 +261,13 @@ Not providing a `seed` input generates stochastic or unpredictable, statisticall
 
 Output is indexed by the subset of input `generations`, where each value is determined by the previous generation's value.
 
-#### generation
+##### generation
 | | |
 | --- | --- |
 | **Type** | `Number` as `Object` key |
 | **Range** | `[0, Infinity)` |
 
-#### value
+##### value
 | | |
 | --- | --- |
 | **Type** | `Number` as `Object` value |
