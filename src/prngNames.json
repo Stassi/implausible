@@ -4,5 +4,6 @@
   "tychei",
   "xor128",
   "xor4096",
-  "xorshift7"
+  "xorshift7",
+  "xorwow"
 ]
