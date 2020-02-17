@@ -3,7 +3,7 @@ import { expect } from 'chai'
 import entries from '../src/utilities/entries'
 import forEach from '../src/utilities/forEach'
 import properties from '../src/utilities/properties'
-import pseudorandom from '../src/pseudorandom/pseudorandom'
+import pseudorandom from '../src/pseudorandom'
 import prngValues from './prngValues'
 
 describe('#pseudorandom', () => {
