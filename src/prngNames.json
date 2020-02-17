@@ -1,5 +1,6 @@
 [
   "alea",
   "arc4",
-  "tychei"
+  "tychei",
+  "xor128"
 ]
