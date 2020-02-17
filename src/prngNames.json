@@ -3,5 +3,6 @@
   "arc4",
   "tychei",
   "xor128",
-  "xor4096"
+  "xor4096",
+  "xorshift7"
 ]
