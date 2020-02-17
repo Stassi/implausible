@@ -2,7 +2,7 @@ import seedrandom from 'seedrandom'
 
 const algorithmName = 'tychei'
 
-const alea = seed => {
+const tychei = seed => {
   const generic = new seedrandom[algorithmName](seed)
   const {
     double,
@@ -18,4 +18,4 @@ const alea = seed => {
   }
 }
 
-export default alea
+export default tychei
