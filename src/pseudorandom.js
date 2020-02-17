@@ -1,8 +1,13 @@
+import { conditional, strictlyEquals } from 'neida'
 import seedrandom from 'seedrandom'
 
-// TODO: Merge into debugAlpha via conditional assignment to const "generic"
-const arc4 = seed => {
-  const generic = seedrandom(seed)
+const prng = ({ prngName, seed }) => {
+  const generic = conditional({
+    ifFalse: () => new seedrandom[prngName](seed),
+    ifTrue: () => seedrandom(seed),
+    predicate: () => strictlyEquals(prngName, 'arc4')
+  })
+
   const {
     double,
     int32,
@@ -17,33 +22,11 @@ const arc4 = seed => {
   }
 }
 
-// TODO: Rename
-const debugAlpha = ({ prngName, seed }) => {
-  const generic = new seedrandom[prngName](seed)
-  const {
-    double,
-    int32,
-    quick
-  } = generic
-
-  return {
-    double,
-    generic,
-    int32,
-    quick
-  }
-}
-
-// TODO: Rename
 // TODO: Map object from array
-const debugBeta = {
-  alea: seed => debugAlpha({ seed, prngName: 'alea' }),
-  tychei: seed => debugAlpha({ seed, prngName: 'tychei' })
-}
-
 const pseudorandom = {
-  arc4,
-  ...debugBeta
+  alea: seed => prng({ seed, prngName: 'alea' }),
+  arc4: seed => prng({ seed, prngName: 'arc4' }),
+  tychei: seed => prng({ seed, prngName: 'tychei' })
 }
 
 export default pseudorandom
