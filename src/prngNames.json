@@ -2,5 +2,6 @@
   "alea",
   "arc4",
   "tychei",
-  "xor128"
+  "xor128",
+  "xor4096"
 ]
