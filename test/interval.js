@@ -3,12 +3,6 @@ import { expect } from 'chai'
 import { interval } from '../src'
 
 describe('#interval', () => {
-  describe('without arguments', () => {
-    it('should generate a non-deterministic number', () => {
-      expect(interval()[0]).to.be.at.least(0).and.below(1)
-    })
-  })
-
   describe('count: 1', () => {
     it('should generate a non-deterministic number', () => {
       expect(interval({ count: 1 })[0]).to.be.at.least(0).and.below(1)
@@ -109,8 +103,10 @@ describe('#interval', () => {
   describe('seed: hello', () => {
     const seed = 'hello'
 
-    it('should generate a deterministic number', () => {
-      expect(interval({ seed })[0]).to.equal(1)
+    describe('count: 1', () => {
+      it('should generate a deterministic number', () => {
+        expect(interval({ seed, count: 1 })[0]).to.equal(1)
+      })
     })
 
     describe('count: 3', () => {
@@ -180,16 +176,26 @@ describe('#interval', () => {
       })
     })
 
-    describe('generations: [0, 3, 10], toPairs: true', () => {
-      it('should generate many deterministic numbers', () => {
-        const res = interval({
-          seed,
-          generations: [0, 3, 10],
-          toPairs: true
+    describe('toPairs: true', () => {
+      const toPairs = true
+
+      describe('generations: [0, 3, 10]', () => {
+        it('should generate many deterministic numbers', () => {
+          const res = interval({ seed, toPairs, generations: [0, 3, 10] })
+          expect(res[0]).to.equal(1)
+          expect(res[3]).to.equal(1)
+          expect(res[10]).to.equal(1)
         })
-        expect(res[0]).to.equal(1)
-        expect(res[3]).to.equal(1)
-        expect(res[10]).to.equal(1)
+      })
+
+      describe('generations: [[0, 3], 10]', () => {
+        it('should generate many deterministic numbers', () => {
+          const res = interval({ seed, toPairs, generations: [[0, 3], 10] })
+          expect(res[0]).to.equal(1)
+          expect(res[1]).to.equal(1)
+          expect(res[2]).to.equal(1)
+          expect(res[10]).to.equal(1)
+        })
       })
     })
   })

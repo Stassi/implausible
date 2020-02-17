@@ -188,7 +188,6 @@ interval({
 | --- | --- |
 | **Property** | `count` |
 | **Type** | `Number` |
-| **Default value** | `1` |
 
 Providing a number determines the first sequential generations starting at `0` in increments of `1`.
 
@@ -199,7 +198,6 @@ Providing a number determines the first sequential generations starting at `0` i
 | --- | --- |
 | **Property** | `generations` |
 | **Type** | `Array` of (`Number` or `Array`-enclosed `Number` pair `[x, y]`) |
-| **Default value** | `[0]` |
 
 Providing a set of numbers to `generations` produces `{ [gen]: [val], ... }` output, where generated values are indexed by generation number keys.
 
