@@ -1,11 +1,17 @@
-import { conditional, strictlyEquals } from 'neida'
 import seedrandom from 'seedrandom'
+import {
+  conditional,
+  map,
+  strictlyEquals
+} from 'neida'
+import fromEntries from './utilities/fromEntries'
+import prngNames from './prngNames'
 
-const prng = ({ prngName, seed }) => {
+const prng = ({ name, seed }) => {
   const generic = conditional({
-    ifFalse: () => new seedrandom[prngName](seed),
+    ifFalse: () => new seedrandom[name](seed),
     ifTrue: () => seedrandom(seed),
-    predicate: () => strictlyEquals(prngName, 'arc4')
+    predicate: () => strictlyEquals(name, 'arc4')
   })
 
   const {
@@ -22,11 +28,17 @@ const prng = ({ prngName, seed }) => {
   }
 }
 
-// TODO: Map object from array
-const pseudorandom = {
-  alea: seed => prng({ seed, prngName: 'alea' }),
-  arc4: seed => prng({ seed, prngName: 'arc4' }),
-  tychei: seed => prng({ seed, prngName: 'tychei' })
-}
+const pseudorandom = fromEntries(
+  map({
+    data: prngNames,
+    transform: name => ([
+      name,
+      seed => prng({
+        name,
+        seed
+      })
+    ])
+  })
+)
 
 export default pseudorandom
