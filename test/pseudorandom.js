@@ -48,7 +48,6 @@ describe('#pseudorandom', () => {
                 })
               })
             },
-            // TODO:
             data: prngValues
           })
         })
