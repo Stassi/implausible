@@ -11,9 +11,10 @@ import isNumber from './utilities/isNumber'
 import propertiesLengthsAreEqual from './utilities/propertiesLengthsAreEqual'
 import toSet from './utilities/toSet'
 import pseudorandom from './pseudorandom'
+import values from './utilities/values'
 
 const interval = ({
-  toPairs,
+  labelGenerations,
   count = 0,
   generations: generationsInput = [],
   prng: prngName = 'arc4',
@@ -38,7 +39,7 @@ const interval = ({
     )
   )
 
-  const res = until({
+  const labeledResults = until({
     initialValue: {
       accumulator: {},
       generation: 0,
@@ -71,11 +72,11 @@ const interval = ({
     })
   }).accumulator
 
-  console.log({ intervalOutput: res })
-
-  // TODO: Implement toPairs
-
-  return res
+  return conditional({
+    ifFalse: () => values(labeledResults),
+    ifTrue: () => labeledResults,
+    predicate: () => labelGenerations
+  })
 }
 
 export default interval
