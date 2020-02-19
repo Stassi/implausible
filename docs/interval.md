@@ -241,6 +241,8 @@ Not providing a `seed` input generates stochastic or unpredictable, statisticall
 | **Type** | `Boolean` |
 | **Default value** | `false` |
 
+**TODO: Replace with `labelGenerations`**
+
 When enabled, outputs key-labeled pairs of generations.
 
 When disabled, outputs only the set of values in generation-ascending order.
