@@ -60,7 +60,10 @@ const interval = ({
       accumulator: {
         ...accumulator,
         ...conditional({
-          ifFalse: () => ({}),
+          ifFalse: () => {
+            prng()
+            return {}
+          },
           ifTrue: () => ({ [generation]: prng() }),
           predicate: () => includedIn({
             collection: generations,
