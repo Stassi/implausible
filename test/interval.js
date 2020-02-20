@@ -31,8 +31,8 @@ describe('#interval', () => {
     describe('generations: [0, 3, 10]', () => {
       it('should generate many non-deterministic numbers', () => {
         const res = interval({
-          labelGenerations: true,
-          generations: [0, 3, 10]
+          generations: [0, 3, 10],
+          labelGenerations: true
         })
         expect(res[0]).to.be.at.least(0).and.below(1)
         expect(res[3]).to.be.at.least(0).and.below(1)
@@ -137,8 +137,8 @@ describe('#interval', () => {
       it('should generate many deterministic numbers', () => {
         const res = interval({
           seed,
-          labelGenerations: true,
-          generations: [0, 3, 10]
+          generations: [0, 3, 10],
+          labelGenerations: true
         })
         expect(res[0]).to.equal(0.9282578795792454)
         expect(res[3]).to.equal(0.23707962084956113)
@@ -150,8 +150,8 @@ describe('#interval', () => {
       it('should generate many deterministic numbers', () => {
         const res = interval({
           seed,
-          labelGenerations: true,
-          generations: [[0, 3], 10]
+          generations: [[0, 3], 10],
+          labelGenerations: true
         })
         expect(res[0]).to.equal(0.9282578795792454)
         expect(res[1]).to.equal(0.3752569768646784)
