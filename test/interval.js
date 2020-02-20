@@ -117,6 +117,22 @@ describe('#interval', () => {
       })
     })
 
+    describe('generations: 0, 10', () => {
+      it('should have distinct values', () => {
+        expect(
+          interval({
+            seed,
+            generations: [0]
+          })[0]
+        ).to.not.equal(
+          interval({
+            seed,
+            generations: [100]
+          })[0]
+        )
+      })
+    })
+
     describe('generations: [0, 3, 10]', () => {
       it('should generate many deterministic numbers', () => {
         const res = interval({
@@ -125,8 +141,8 @@ describe('#interval', () => {
           generations: [0, 3, 10]
         })
         expect(res[0]).to.equal(0.9282578795792454)
-        expect(res[3]).to.equal(0.3752569768646784)
-        expect(res[10]).to.equal(0.7316977468919549)
+        expect(res[3]).to.equal(0.23707962084956113)
+        expect(res[10]).to.equal(0.959300020541289)
       })
     })
 
@@ -140,7 +156,7 @@ describe('#interval', () => {
         expect(res[0]).to.equal(0.9282578795792454)
         expect(res[1]).to.equal(0.3752569768646784)
         expect(res[2]).to.equal(0.7316977468919549)
-        expect(res[10]).to.equal(0.23707962084956113)
+        expect(res[10]).to.equal(0.959300020541289)
       })
     })
   })
