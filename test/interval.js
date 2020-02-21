@@ -27,18 +27,6 @@ describe('#interval', () => {
         data: prngNames
       })
     })
-
-    describe('generations: [0, 3, 10]', () => {
-      it('should generate many non-deterministic numbers', () => {
-        const res = interval({
-          generations: [0, 3, 10],
-          labelGenerations: true
-        })
-        expect(res[0]).to.be.at.least(0).and.below(1)
-        expect(res[3]).to.be.at.least(0).and.below(1)
-        expect(res[10]).to.be.at.least(0).and.below(1)
-      })
-    })
   })
 
   describe('with seed', () => {
