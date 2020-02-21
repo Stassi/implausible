@@ -16,7 +16,7 @@ describe('#interval', () => {
       forEach({
         callback: ([, prngName]) => {
           describe(`prng: ${prngName}`, () => {
-            it('should generate many deterministic numbers', () => {
+            it('should generate many non-deterministic numbers', () => {
               const res = interval({ count: 3, prng: prngName })
               expect(res[0]).to.be.at.least(0).and.below(1)
               expect(res[1]).to.be.at.least(0).and.below(1)
