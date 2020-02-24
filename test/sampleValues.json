@@ -1,0 +1,166 @@
+{
+  "count": 3,
+  "collections": {
+    "coin": {
+      "withoutReplacement": {
+        "alea": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "arc4": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "tychei": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "xor128": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "xor4096": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "xorshift7": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "xorwow": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ]
+      },
+      "withReplacement": {
+        "alea": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "arc4": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "tychei": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "xor128": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "xor4096": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "xorshift7": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "xorwow": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ]
+      },
+      "collection": [
+        "heads",
+        "tails"
+      ]
+    },
+    "weightedCoin": {
+      "withoutReplacement": {
+        "alea": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "arc4": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "tychei": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "xor128": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "xor4096": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "xorshift7": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "xorwow": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ]
+      },
+      "withReplacement": {
+        "alea": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "arc4": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "tychei": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "xor128": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "xor4096": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "xorshift7": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ],
+        "xorwow": [
+          "debugTest",
+          "debugTest",
+          "debugTest"
+        ]
+      },
+      "collection": {
+        "heads": 9,
+        "tails": 1
+      }
+    }
+  },
+  "seed": "hello."
+}
