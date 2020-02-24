@@ -183,52 +183,124 @@ sample({
 ```
 
 ##### From intervals
-Generate many non-random samples from specific intervals.
+Generate many non-random samples from specific intervals (without replacement).
 
 ```javascript
 sample({
   collection: [
-    'heads',
-    'tails'
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
   ],
   intervals: [
-    0,
-    0.4,
+    0.3,
     0.5,
-    1
-  ]
+    0.5,
+    0.5,
+    0.7
+  ],
 })
 // => [
-//   'heads',
-//   'heads',
-//   'tails',
-//   'tails'
+//   2,
+//   4,
+//   5,
+//   3,
+//   6
 // ]
 ```
 
 ---
-Generate many non-random weighted samples from specific intervals.
+Generate many non-random samples from specific intervals with replacement.
 
 ```javascript
 sample({
-  collection: {
-    'heads': 9,
-    'tails': 1
-  },
+  collection: [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
   intervals: [
-    0,
-    0.4,
+    0.3,
     0.5,
-    0.9,
-    1
-  ]
+    0.5,
+    0.5,
+    0.7
+  ],
+  replacement: true
 })
 // => [
-//   'heads',
-//   'heads',
-//   'heads',
-//   'heads',
-//   'tails'
+//   2,
+//   4,
+//   4,
+//   4,
+//   5
+// ]
+```
+
+---
+Generate many non-random weighted samples from specific intervals (without replacement).
+
+```javascript
+sample({
+  collection: [
+    [1, 1],
+    [2, 100],
+    [3, 1],
+    [4, 100],
+    [5, 1],
+    [6, 100]
+  ],
+  intervals: [
+    0.3,
+    0.5,
+    0.5,
+    0.5,
+    0.7
+  ],
+})
+// => [
+//   2,
+//   4,
+//   6,
+//   3,
+//   5
+// ]
+```
+
+---
+Generate many non-random weighted samples from specific intervals with replacement.
+
+```javascript
+sample({
+  collection: [
+    [1, 1],
+    [2, 100],
+    [3, 1],
+    [4, 100],
+    [5, 1],
+    [6, 100]
+  ],
+  intervals: [
+    0.3,
+    0.5,
+    0.5,
+    0.5,
+    0.7
+  ],
+  replacement: true
+})
+// => [
+//   2
+//   4,
+//   4,
+//   4,
+//   6
 // ]
 ```
 
