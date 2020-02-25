@@ -256,11 +256,11 @@ describe('#sample', () => {
           })
 
           expect(res).to.have.ordered.members([
-            'debug',
-            'debug',
-            'debug',
-            'debug',
-            'debug'
+            2,
+            4,
+            4,
+            4,
+            5
           ])
         })
       })
@@ -307,11 +307,11 @@ describe('#sample', () => {
           })
 
           expect(res).to.have.ordered.members([
-            'debug',
-            'debug',
-            'debug',
-            'debug',
-            'debug'
+            2,
+            4,
+            4,
+            4,
+            6
           ])
         })
       })
