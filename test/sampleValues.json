@@ -4,39 +4,39 @@
     "coin": {
       "withoutReplacement": {
         "alea": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "heads",
+          "tails",
+          "heads"
         ],
         "arc4": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "tails",
+          "heads",
+          "tails"
         ],
         "tychei": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "heads",
+          "tails",
+          "tails"
         ],
         "xor128": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "tails",
+          "heads",
+          "tails"
         ],
         "xor4096": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "tails",
+          "heads",
+          "tails"
         ],
         "xorshift7": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "tails",
+          "heads",
+          "heads"
         ],
         "xorwow": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "heads",
+          "tails",
+          "tails"
         ]
       },
       "withReplacement": {
@@ -84,39 +84,39 @@
     "weightedCoin": {
       "withoutReplacement": {
         "alea": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "heads",
+          "tails",
+          "heads"
         ],
         "arc4": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "tails",
+          "heads",
+          "heads"
         ],
         "tychei": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "heads",
+          "tails",
+          "heads"
         ],
         "xor128": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "heads",
+          "tails",
+          "heads"
         ],
         "xor4096": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "tails",
+          "heads",
+          "tails"
         ],
         "xorshift7": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "heads",
+          "tails",
+          "heads"
         ],
         "xorwow": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "heads",
+          "tails",
+          "heads"
         ]
       },
       "withReplacement": {
