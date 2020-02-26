@@ -1,6 +1,7 @@
 const removeIndex = ({ collection, index }) => {
-  collection.splice(index, 1)
-  return collection
+  const mutableCollection = [...collection]
+  mutableCollection.splice(index, 1)
+  return mutableCollection
 }
 
 export default removeIndex
