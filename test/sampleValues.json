@@ -41,39 +41,39 @@
       },
       "withReplacement": {
         "alea": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "heads",
+          "tails",
+          "heads"
         ],
         "arc4": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "tails",
+          "heads",
+          "tails"
         ],
         "tychei": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "heads",
+          "tails",
+          "tails"
         ],
         "xor128": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "tails",
+          "tails",
+          "tails"
         ],
         "xor4096": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "tails",
+          "heads",
+          "tails"
         ],
         "xorshift7": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "tails",
+          "heads",
+          "heads"
         ],
         "xorwow": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "heads",
+          "tails",
+          "tails"
         ]
       },
       "collection": [
@@ -121,45 +121,51 @@
       },
       "withReplacement": {
         "alea": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "heads",
+          "heads",
+          "heads"
         ],
         "arc4": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "tails",
+          "heads",
+          "heads"
         ],
         "tychei": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "heads",
+          "heads",
+          "heads"
         ],
         "xor128": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "heads",
+          "heads",
+          "heads"
         ],
         "xor4096": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "tails",
+          "heads",
+          "tails"
         ],
         "xorshift7": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "heads",
+          "heads",
+          "heads"
         ],
         "xorwow": [
-          "debugTest",
-          "debugTest",
-          "debugTest"
+          "heads",
+          "heads",
+          "heads"
         ]
       },
-      "collection": {
-        "heads": 9,
-        "tails": 1
-      }
+      "collection": [
+        [
+          "heads",
+          9
+        ],
+        [
+          "tails",
+          1
+        ]
+      ]
     }
   },
   "seed": "hello."
