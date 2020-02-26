@@ -4,6 +4,9 @@ import forEach from '../src/utilities/forEach'
 import sample from '../src/sample'
 import sampleValues from './sampleValues'
 
+const coinCollection = sampleValues.collections.coin.collection
+const weightedCoinCollection = sampleValues.collections.weightedCoin.collection
+
 describe('#sample', () => {
   describe('without intervals', () => {
     describe('count: 3', () => {
@@ -11,7 +14,7 @@ describe('#sample', () => {
 
       describe('without seed', () => {
         describe('coin', () => {
-          const collection = sampleValues.collections.coin.collection
+          const collection = coinCollection
 
           describe('without replacement', () => {
             const replacement = false
@@ -27,7 +30,10 @@ describe('#sample', () => {
                       replacement,
                       prng: prngName
                     })
+
                     expect(res[0]).to.be.oneOf(collection)
+                    expect(res[1]).to.be.oneOf(collection)
+                    expect(res[2]).to.be.oneOf(collection)
                   })
                 })
               },
@@ -49,7 +55,10 @@ describe('#sample', () => {
                       replacement,
                       prng: prngName
                     })
+
                     expect(res[0]).to.be.oneOf(collection)
+                    expect(res[1]).to.be.oneOf(collection)
+                    expect(res[2]).to.be.oneOf(collection)
                   })
                 })
               },
@@ -59,7 +68,7 @@ describe('#sample', () => {
         })
 
         describe('weighted coin', () => {
-          const collection = sampleValues.collections.weightedCoin.collection
+          const collection = weightedCoinCollection
 
           describe('without replacement', () => {
             const replacement = false
@@ -75,7 +84,10 @@ describe('#sample', () => {
                       replacement,
                       prng: prngName
                     })
-                    expect(res[0]).to.be.oneOf(collection)
+
+                    expect(res[0]).to.be.oneOf(coinCollection)
+                    expect(res[1]).to.be.oneOf(coinCollection)
+                    expect(res[2]).to.be.oneOf(coinCollection)
                   })
                 })
               },
@@ -97,7 +109,10 @@ describe('#sample', () => {
                       replacement,
                       prng: prngName
                     })
-                    expect(res[0]).to.be.oneOf(collection)
+
+                    expect(res[0]).to.be.oneOf(coinCollection)
+                    expect(res[1]).to.be.oneOf(coinCollection)
+                    expect(res[2]).to.be.oneOf(coinCollection)
                   })
                 })
               },
@@ -111,7 +126,7 @@ describe('#sample', () => {
         const seed = sampleValues.seed
 
         describe('coin', () => {
-          const collection = sampleValues.collections.coin.collection
+          const collection = coinCollection
 
           describe('without replacement', () => {
             const replacement = false
@@ -163,7 +178,7 @@ describe('#sample', () => {
         })
 
         describe('weighted coin', () => {
-          const collection = sampleValues.collections.weightedCoin.collection
+          const collection = weightedCoinCollection
 
           describe('without replacement', () => {
             const replacement = false
