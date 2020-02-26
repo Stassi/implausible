@@ -128,7 +128,8 @@ describe('#sample', () => {
                       seed,
                       prng: prngName
                     })
-                    expect(res[0]).to.be.oneOf(collection)
+
+                    expect(res).to.have.ordered.members(algorithms[prngName])
                   })
                 })
               },
@@ -151,7 +152,8 @@ describe('#sample', () => {
                       seed,
                       prng: prngName
                     })
-                    expect(res[0]).to.be.oneOf(collection)
+
+                    expect(res).to.have.ordered.members(algorithms[prngName])
                   })
                 })
               },
@@ -178,7 +180,8 @@ describe('#sample', () => {
                       seed,
                       prng: prngName
                     })
-                    expect(res[0]).to.be.oneOf(collection)
+
+                    expect(res).to.have.ordered.members(algorithms[prngName])
                   })
                 })
               },
@@ -201,7 +204,8 @@ describe('#sample', () => {
                       seed,
                       prng: prngName
                     })
-                    expect(res[0]).to.be.oneOf(collection)
+
+                    expect(res).to.have.ordered.members(algorithms[prngName])
                   })
                 })
               },
