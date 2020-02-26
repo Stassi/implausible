@@ -1,3 +1,3 @@
-const flatten = x => x.flat()
+const flatten = x => [].concat(...x)
 
 export default flatten
