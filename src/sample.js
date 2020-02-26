@@ -19,6 +19,7 @@ import removeIndex from './utilities/removeIndex'
 import withoutHead from './utilities/withoutHead'
 import zip from './utilities/zip'
 import zeroLength from './utilities/zeroLength'
+import interval from './interval'
 
 const trimWeights = weights => withoutHead([
   ...withoutTail(weights),
@@ -28,10 +29,15 @@ const trimWeights = weights => withoutHead([
 const sample = ({
   replacement,
   collection: collectionInput,
-  intervals: intervalsInput
+  intervals: intervalsInput,
+  ...intervalOptions
 }) => until({
   initialValue: {
-    intervals: intervalsInput,
+    intervals: conditional({
+      ifFalse: () => interval(intervalOptions),
+      ifTrue: () => intervalsInput,
+      predicate: () => intervalsInput
+    }),
     results: [],
     unitWeightPairs: map({
       data: collectionInput,
