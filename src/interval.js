@@ -9,12 +9,15 @@ import flatten from './utilities/flatten'
 import includedIn from './utilities/includedIn'
 import isNumber from './utilities/isNumber'
 import propertiesLengthsAreEqual from './utilities/propertiesLengthsAreEqual'
+import scale from './utilities/scale'
 import toSet from './utilities/toSet'
-import pseudorandom from './pseudorandom'
 import values from './utilities/values'
+import pseudorandom from './pseudorandom'
 
 const interval = ({
   labelGenerations,
+  maximum = 1,
+  minimum = 0,
   count = 0,
   generations: generationsInput = [],
   prng: prngName = 'arc4',
@@ -64,7 +67,13 @@ const interval = ({
             prng()
             return {}
           },
-          ifTrue: () => ({ [generation]: prng() }),
+          ifTrue: () => ({
+            [generation]: scale({
+              maximum,
+              minimum,
+              interval: prng()
+            })
+          }),
           predicate: () => includedIn({
             collection: generations,
             element: generation
