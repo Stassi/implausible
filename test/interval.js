@@ -36,6 +36,19 @@ describe('#interval', () => {
       it('should generate a deterministic number', () => {
         expect(interval({ seed, count: 1 })[0]).to.equal(0.9282578795792454)
       })
+
+      describe('with scaling', () => {
+        it('should generate a deterministic number scaled to a range', () => {
+          expect(
+            interval({
+              maximum: -10,
+              minimum: -20,
+              seed,
+              count: 1
+            })[0]
+          ).to.equal(-10.717421204207545)
+        })
+      })
     })
 
     describe('count: 3', () => {
