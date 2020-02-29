@@ -1,6 +1,6 @@
 import { describe, it } from 'mocha'
 import { expect } from 'chai'
-import forEach from '../src/utilities/forEach'
+import { forEach } from 'neida'
 import sample from '../src/sample'
 import sampleValues from './sampleValues'
 
@@ -37,7 +37,7 @@ describe('#sample', () => {
                   })
                 })
               },
-              data: algorithms
+              collection: algorithms
             })
           })
 
@@ -62,7 +62,7 @@ describe('#sample', () => {
                   })
                 })
               },
-              data: algorithms
+              collection: algorithms
             })
           })
         })
@@ -91,7 +91,7 @@ describe('#sample', () => {
                   })
                 })
               },
-              data: algorithms
+              collection: algorithms
             })
           })
 
@@ -116,7 +116,7 @@ describe('#sample', () => {
                   })
                 })
               },
-              data: algorithms
+              collection: algorithms
             })
           })
         })
@@ -148,7 +148,7 @@ describe('#sample', () => {
                   })
                 })
               },
-              data: algorithms
+              collection: algorithms
             })
           })
 
@@ -172,7 +172,7 @@ describe('#sample', () => {
                   })
                 })
               },
-              data: algorithms
+              collection: algorithms
             })
           })
         })
@@ -200,7 +200,7 @@ describe('#sample', () => {
                   })
                 })
               },
-              data: algorithms
+              collection: algorithms
             })
           })
 
@@ -224,7 +224,7 @@ describe('#sample', () => {
                   })
                 })
               },
-              data: algorithms
+              collection: algorithms
             })
           })
         })

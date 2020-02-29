@@ -1,7 +1,6 @@
 import { describe, it } from 'mocha'
 import { expect } from 'chai'
-import entries from '../src/utilities/entries'
-import forEach from '../src/utilities/forEach'
+import { entries, forEach } from 'neida'
 import pseudorandom from '../src/pseudorandom'
 import prngValues from './prngValues'
 
@@ -24,11 +23,11 @@ describe('#pseudorandom', () => {
                 })
               })
             },
-            data: prngValues
+            collection: prngValues
           })
         })
       },
-      data: entries(algorithms)
+      collection: entries(algorithms)
     })
   })
 
@@ -48,11 +47,11 @@ describe('#pseudorandom', () => {
                 })
               })
             },
-            data: prngValues
+            collection: prngValues
           })
         })
       },
-      data: entries(algorithms)
+      collection: entries(algorithms)
     })
   })
 })

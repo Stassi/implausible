@@ -2,6 +2,7 @@ import {
   add,
   conditional,
   divide,
+  findIndex,
   head,
   lessThan,
   map,
@@ -11,7 +12,6 @@ import {
   until,
   withoutTail
 } from 'neida'
-import findIndex from './utilities/findIndex'
 import isArray from './utilities/isArray'
 import mapHead from './utilities/mapHead'
 import mapTail from './utilities/mapTail'

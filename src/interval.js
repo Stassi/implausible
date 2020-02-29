@@ -2,12 +2,12 @@ import {
   addOne,
   conditional,
   flatten,
+  includes,
   map,
   range,
   scale,
   until
 } from 'neida'
-import includedIn from './utilities/includedIn'
 import isNumber from './utilities/isNumber'
 import propertiesLengthsAreEqual from './utilities/propertiesLengthsAreEqual'
 import toSet from './utilities/toSet'
@@ -74,7 +74,7 @@ const interval = ({
               interval: prng()
             })
           }),
-          predicate: () => includedIn({
+          predicate: () => includes({
             collection: generations,
             element: generation
           })

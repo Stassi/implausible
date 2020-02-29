@@ -1,12 +1,12 @@
 import seedrandom from 'seedrandom'
 import {
   conditional,
+  entries,
   flatten,
   map,
   strictEqual,
   toObject
 } from 'neida'
-import entries from '../src/utilities/entries'
 import prngNames from '../src/prngNames'
 
 const prng = ({

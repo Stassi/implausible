@@ -1,7 +1,7 @@
 import { describe, it } from 'mocha'
 import { expect } from 'chai'
+import { forEach } from 'neida'
 import { interval } from '../src'
-import forEach from '../src/utilities/forEach'
 import prngNames from '../src/prngNames'
 
 describe('#interval', () => {
@@ -24,7 +24,7 @@ describe('#interval', () => {
             })
           })
         },
-        data: prngNames
+        collection: prngNames
       })
     })
   })
