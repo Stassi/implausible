@@ -1,5 +1,5 @@
 import { map, tail } from 'neida'
 
-const mapTail = data => map({ data, transform: tail })
+const mapTail = collection => map({ collection, transform: tail })
 
 export default mapTail

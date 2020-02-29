@@ -1,6 +1,5 @@
-import { map } from 'neida'
-import head from './head'
+import { head, map } from 'neida'
 
-const mapHead = data => map({ data, transform: head })
+const mapHead = collection => map({ collection, transform: head })
 
 export default mapHead

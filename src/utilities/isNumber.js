@@ -1,6 +1,6 @@
-import { strictlyEquals } from 'neida'
+import { strictEqual } from 'neida'
 
-const isNumber = x => strictlyEquals(
+const isNumber = x => strictEqual(
   'number',
   typeof x
 )

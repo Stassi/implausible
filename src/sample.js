@@ -1,6 +1,8 @@
 import {
   add,
   conditional,
+  divide,
+  head,
   lessThan,
   map,
   reduce,
@@ -9,9 +11,7 @@ import {
   until,
   withoutTail
 } from 'neida'
-import divide from './utilities/divide'
 import findIndex from './utilities/findIndex'
-import head from './utilities/head'
 import isArray from './utilities/isArray'
 import mapHead from './utilities/mapHead'
 import mapTail from './utilities/mapTail'
@@ -33,7 +33,7 @@ const sample = ({
   ...intervalOptions
 }) => {
   const initialUnitWeightPairs = map({
-    data: collectionInput,
+    collection: collectionInput,
     transform: x => conditional({
       ifFalse: () => [x, 1],
       ifTrue: () => x,
@@ -70,8 +70,8 @@ const sample = ({
           units,
           trimWeights(
             reduce({
-              data: map({
-                data: unitWeightPairs,
+              collection: map({
+                collection: unitWeightPairs,
                 transform: ([, weight]) => divide({
                   dividend: weight,
                   divisor: sum(

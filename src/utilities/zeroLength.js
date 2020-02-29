@@ -1,6 +1,6 @@
-import { length, strictlyEquals } from 'neida'
+import { length, strictEqual } from 'neida'
 
-const zeroLength = x => strictlyEquals(
+const zeroLength = x => strictEqual(
   length(x),
   0
 )

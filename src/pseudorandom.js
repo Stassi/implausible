@@ -1,11 +1,11 @@
 import seedrandom from 'seedrandom'
 import {
   conditional,
+  flatten,
   map,
-  strictlyEquals
+  strictEqual
 } from 'neida'
 import entries from '../src/utilities/entries'
-import flatten from '../src/utilities/flatten'
 import fromEntries from '../src/utilities/fromEntries'
 import prngNames from '../src/prngNames'
 
@@ -17,7 +17,7 @@ const prng = ({
   const generic = conditional({
     ifFalse: () => new seedrandom[prngName](seed),
     ifTrue: () => seedrandom(seed),
-    predicate: () => strictlyEquals(prngName, 'arc4')
+    predicate: () => strictEqual(prngName, 'arc4')
   })
 
   const {
@@ -37,9 +37,9 @@ const prng = ({
 const pseudorandom = seed => fromEntries(
   flatten(
     map({
-      data: prngNames,
+      collection: prngNames,
       transform: prngName => map({
-        data: entries({
+        collection: entries({
           double: `${prngName}Double`,
           generic: prngName,
           int32: `${prngName}Int32`,

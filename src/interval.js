@@ -1,12 +1,12 @@
 import {
   addOne,
   conditional,
+  flatten,
   map,
   range,
   scale,
   until
 } from 'neida'
-import flatten from './utilities/flatten'
 import includedIn from './utilities/includedIn'
 import isNumber from './utilities/isNumber'
 import propertiesLengthsAreEqual from './utilities/propertiesLengthsAreEqual'
@@ -26,7 +26,7 @@ const interval = ({
   const generations = toSet(
     flatten(
       map({
-        data: [
+        collection: [
           [0, count],
           ...generationsInput
         ],

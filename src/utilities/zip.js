@@ -1,9 +1,9 @@
 import { map, reduce } from 'neida'
 
 const zip = (headerArray, ...otherArrays) => map({
-  data: headerArray,
+  collection: headerArray,
   transform: (headerElement, headerIndex) => reduce({
-    data: otherArrays,
+    collection: otherArrays,
     initialValue: [headerElement],
     reducer: (accumulator, currentArray) => [
       ...accumulator,
