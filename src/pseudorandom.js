@@ -3,10 +3,10 @@ import {
   conditional,
   flatten,
   map,
-  strictEqual
+  strictEqual,
+  toObject
 } from 'neida'
 import entries from '../src/utilities/entries'
-import fromEntries from '../src/utilities/fromEntries'
 import prngNames from '../src/prngNames'
 
 const prng = ({
@@ -34,7 +34,7 @@ const prng = ({
   }[variantName]
 }
 
-const pseudorandom = seed => fromEntries(
+const pseudorandom = seed => toObject(
   flatten(
     map({
       collection: prngNames,
