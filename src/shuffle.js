@@ -1,4 +1,4 @@
-import { cardinality as length } from 'neida'
+import { length } from 'neida'
 import chunk from './utilities/chunk'
 import multiply from './utilities/multiply'
 import sample from './sample'

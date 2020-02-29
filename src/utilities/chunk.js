@@ -1,6 +1,6 @@
 import {
   add,
-  cardinality as length,
+  length,
   strictlyEquals,
   until
 } from 'neida'

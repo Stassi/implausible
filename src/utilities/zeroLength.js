@@ -1,7 +1,4 @@
-import {
-  cardinality as length,
-  strictlyEquals
-} from 'neida'
+import { length, strictlyEquals } from 'neida'
 
 const zeroLength = x => strictlyEquals(
   length(x),

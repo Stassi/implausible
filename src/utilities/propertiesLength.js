@@ -1,4 +1,4 @@
-import { cardinality as length } from 'neida'
+import { length } from 'neida'
 import properties from './properties'
 
 const propertiesLength = x => length(
