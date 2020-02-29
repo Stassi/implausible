@@ -3,13 +3,13 @@ import {
   conditional,
   map,
   range,
+  scale,
   until
 } from 'neida'
 import flatten from './utilities/flatten'
 import includedIn from './utilities/includedIn'
 import isNumber from './utilities/isNumber'
 import propertiesLengthsAreEqual from './utilities/propertiesLengthsAreEqual'
-import scale from './utilities/scale'
 import toSet from './utilities/toSet'
 import values from './utilities/values'
 import pseudorandom from './pseudorandom'

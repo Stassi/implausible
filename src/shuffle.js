@@ -1,6 +1,8 @@
-import { length } from 'neida'
-import chunk from './utilities/chunk'
-import multiply from './utilities/multiply'
+import {
+  chunk,
+  length,
+  multiply
+} from 'neida'
 import sample from './sample'
 
 const shuffle = ({
