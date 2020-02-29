@@ -17,8 +17,8 @@ import mapHead from './utilities/mapHead'
 import mapTail from './utilities/mapTail'
 import removeIndex from './utilities/removeIndex'
 import withoutHead from './utilities/withoutHead'
-import zip from './utilities/zip'
 import zeroLength from './utilities/zeroLength'
+import zip from './utilities/zip'
 import interval from './interval'
 
 const trimWeights = weights => withoutHead([
