@@ -15,8 +15,8 @@ import {
 } from 'neida'
 import mapHead from './utilities/mapHead'
 import mapTail from './utilities/mapTail'
-import removeIndex from './utilities/removeIndex'
 import withoutHead from './utilities/withoutHead'
+import withoutIndex from './utilities/withoutIndex'
 import zeroLength from './utilities/zeroLength'
 import zip from './utilities/zip'
 import interval from './interval'
@@ -103,7 +103,7 @@ const sample = ({
           units[chosenUnitIndex]
         ],
         unitWeightPairs: conditional({
-          ifFalse: () => removeIndex({
+          ifFalse: () => withoutIndex({
             collection: unitWeightPairs,
             index: chosenUnitIndex
           }),
