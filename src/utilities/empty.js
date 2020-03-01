@@ -1,8 +1,8 @@
 import { length, strictEqual } from 'neida'
 
-const zeroLength = x => strictEqual(
+const empty = x => strictEqual(
   length(x),
   0
 )
 
-export default zeroLength
+export default empty

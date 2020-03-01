@@ -13,9 +13,9 @@ import {
   until,
   withoutTail,
 } from 'neida'
+import empty from './utilities/empty'
 import withoutHead from './utilities/withoutHead'
 import withoutIndex from './utilities/withoutIndex'
-import zeroLength from './utilities/zeroLength'
 import zip from './utilities/zip'
 import interval from './interval'
 
@@ -52,7 +52,7 @@ const sample = ({
       results: [],
       unitWeightPairs: initialUnitWeightPairs
     },
-    predicate: ({ intervals }) => zeroLength(intervals),
+    predicate: ({ intervals }) => empty(intervals),
     transform: ({
       intervals,
       results,
@@ -61,7 +61,7 @@ const sample = ({
       const unitWeightPairs = conditional({
         ifFalse: () => depletedUnitWeightPairs,
         ifTrue: () => initialUnitWeightPairs,
-        predicate: () => zeroLength(depletedUnitWeightPairs)
+        predicate: () => empty(depletedUnitWeightPairs)
       })
 
       const units = mapHead(unitWeightPairs)
