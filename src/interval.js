@@ -11,7 +11,7 @@ import {
   values
 } from 'neida'
 import equalLengths from './utilities/equalLengths'
-import toSet from './utilities/toSet'
+import withoutDuplicates from './utilities/withoutDuplicates'
 import pseudorandom from './pseudorandom'
 
 const interval = ({
@@ -23,7 +23,7 @@ const interval = ({
   prng: prngName = 'arc4',
   seed: seedInput
 } = {}) => {
-  const generations = toSet(
+  const generations = withoutDuplicates(
     flatten(
       map({
         collection: [
