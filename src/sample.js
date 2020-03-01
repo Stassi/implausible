@@ -13,13 +13,14 @@ import {
   until,
   withoutTail,
 } from 'neida'
-import mapHead from './utilities/mapHead'
-import mapTail from './utilities/mapTail'
 import withoutHead from './utilities/withoutHead'
 import withoutIndex from './utilities/withoutIndex'
 import zeroLength from './utilities/zeroLength'
 import zip from './utilities/zip'
 import interval from './interval'
+
+const mapHead = collection => map({ collection, transform: head })
+const mapTail = collection => map({ collection, transform: tail })
 
 const trimWeights = weights => withoutHead([
   ...withoutTail(weights),
