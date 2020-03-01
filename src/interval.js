@@ -6,9 +6,9 @@ import {
   map,
   range,
   scale,
-  until
+  typeIs,
+  until,
 } from 'neida'
-import isNumber from './utilities/isNumber'
 import propertiesLengthsAreEqual from './utilities/propertiesLengthsAreEqual'
 import toSet from './utilities/toSet'
 import values from './utilities/values'
@@ -30,13 +30,13 @@ const interval = ({
           [0, count],
           ...generationsInput
         ],
-        transform: x => conditional({
+        transform: value => conditional({
           ifFalse: () => range({
-            maximum: x[1],
-            minimum: x[0]
+            maximum: value[1],
+            minimum: value[0]
           }),
-          ifTrue: () => x,
-          predicate: () => isNumber(x)
+          ifTrue: () => value,
+          predicate: () => typeIs({ value, type: 'number' })
         })
       })
     )

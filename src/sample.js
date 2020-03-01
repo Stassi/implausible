@@ -9,10 +9,10 @@ import {
   reduce,
   sum,
   tail,
+  typeIs,
   until,
-  withoutTail
+  withoutTail,
 } from 'neida'
-import isArray from './utilities/isArray'
 import mapHead from './utilities/mapHead'
 import mapTail from './utilities/mapTail'
 import removeIndex from './utilities/removeIndex'
@@ -34,10 +34,10 @@ const sample = ({
 }) => {
   const initialUnitWeightPairs = map({
     collection: collectionInput,
-    transform: x => conditional({
-      ifFalse: () => [x, 1],
-      ifTrue: () => x,
-      predicate: () => isArray(x)
+    transform: value => conditional({
+      ifFalse: () => [value, 1],
+      ifTrue: () => value,
+      predicate: () => typeIs({ value, type: 'array' })
     })
   })
 
