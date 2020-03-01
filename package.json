@@ -32,7 +32,7 @@
     "test": "npm run lint && mocha"
   },
   "dependencies": {
-    "neida": "^1.2.0",
+    "neida": "^2.0.0",
     "seedrandom": "^3.0.5"
   },
   "devDependencies": {

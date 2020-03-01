@@ -1,6 +1,7 @@
 import {
   addOne,
   conditional,
+  deduplicate,
   flatten,
   includes,
   map,
@@ -11,7 +12,6 @@ import {
   values
 } from 'neida'
 import equalLengths from './utilities/equalLengths'
-import withoutDuplicates from './utilities/withoutDuplicates'
 import pseudorandom from './pseudorandom'
 
 const interval = ({
@@ -23,7 +23,7 @@ const interval = ({
   prng: prngName = 'arc4',
   seed: seedInput
 } = {}) => {
-  const generations = withoutDuplicates(
+  const generations = deduplicate(
     flatten(
       map({
         collection: [

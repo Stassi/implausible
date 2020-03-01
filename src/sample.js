@@ -11,11 +11,11 @@ import {
   tail,
   typeIs,
   until,
-  withoutTail,
+  withoutHead,
+  withoutIndex,
+  withoutTail
 } from 'neida'
 import empty from './utilities/empty'
-import withoutHead from './utilities/withoutHead'
-import withoutIndex from './utilities/withoutIndex'
 import zip from './utilities/zip'
 import interval from './interval'
 
