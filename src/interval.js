@@ -8,10 +8,10 @@ import {
   scale,
   typeIs,
   until,
+  values
 } from 'neida'
 import equalLengths from './utilities/equalLengths'
 import toSet from './utilities/toSet'
-import values from './utilities/values'
 import pseudorandom from './pseudorandom'
 
 const interval = ({
