@@ -2,6 +2,7 @@ import {
   add,
   conditional,
   divide,
+  empty,
   findIndex,
   head,
   lessThan,
@@ -13,10 +14,9 @@ import {
   until,
   withoutHead,
   withoutIndex,
-  withoutTail
+  withoutTail,
+  zip
 } from 'neida'
-import empty from './utilities/empty'
-import zip from './utilities/zip'
 import interval from './interval'
 
 const mapHead = collection => map({ collection, transform: head })

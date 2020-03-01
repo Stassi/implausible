@@ -2,6 +2,7 @@ import {
   addOne,
   conditional,
   deduplicate,
+  equalLengths,
   flatten,
   includes,
   map,
@@ -11,7 +12,6 @@ import {
   until,
   values
 } from 'neida'
-import equalLengths from './utilities/equalLengths'
 import pseudorandom from './pseudorandom'
 
 const interval = ({
