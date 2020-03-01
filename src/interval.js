@@ -9,7 +9,7 @@ import {
   typeIs,
   until,
 } from 'neida'
-import propertiesLengthsAreEqual from './utilities/propertiesLengthsAreEqual'
+import equalLengths from './utilities/equalLengths'
 import toSet from './utilities/toSet'
 import values from './utilities/values'
 import pseudorandom from './pseudorandom'
@@ -50,7 +50,7 @@ const interval = ({
         seedInput || pseudorandom().arc4()
       )[prngName]
     },
-    predicate: ({ accumulator }) => propertiesLengthsAreEqual(
+    predicate: ({ accumulator }) => equalLengths(
       accumulator,
       generations
     ),
