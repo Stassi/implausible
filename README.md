@@ -5,6 +5,7 @@
 [![license][shields license]][implausible license]
 [![npm bundle size (minified)][shields min]][bundlephobia implausible]
 [![npm bundle size (minified + gzip)][shields minzip]][bundlephobia implausible]
+[![implausible][snyk implausible badge]][snyk implausible]
 [![node version compatibility][shields node]][implausible package]
 [![npm current version][shields npm]][npm implausible]
 ---
@@ -318,6 +319,9 @@ Thanks to David Bau and additional authors for distributing parent package [seed
 [shields node]: https://img.shields.io/node/v/implausible.svg
 [shields npm]: https://img.shields.io/npm/v/implausible.svg
 [shields travis]: https://img.shields.io/travis/com/Stassi/implausible.svg
+[snyk implausible]: https://snyk.io/advisor/npm-package/implausible
+[snyk implausible badge]: https://snyk.io/advisor/npm-package/implausible/badge.svg
+    (Snyk Advisor: implausible)
 [travis implausible]: https://travis-ci.com/Stassi/implausible
     (travis: implausible)
 [wikipedia prng]: https://en.wikipedia.org/wiki/Pseudorandom_number_generator
