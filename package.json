@@ -76,10 +76,9 @@
   },
   "browserslist": [
     "defaults",
-    "node 8",
-    "node 10",
     "node 12",
-    "node 13"
+    "node 14",
+    "node 16"
   ],
   "mocha": {
     "require": "@babel/register"
