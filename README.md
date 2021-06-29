@@ -1,13 +1,13 @@
 # implausible
-[![build status][shields travis]][travis implausible]
+[![npm current version][shields npm]][npm implausible]
+[![license][shields license]][implausible license]
 [![npm dependencies][shields dependencies]][implausible package]
 [![npm dev dependencies][shields dev dependencies]][implausible package]
-[![license][shields license]][implausible license]
+[![node version compatibility][shields node]][implausible package]
+[![implausible][snyk implausible badge]][snyk implausible]
 [![npm bundle size (minified)][shields min]][bundlephobia implausible]
 [![npm bundle size (minified + gzip)][shields minzip]][bundlephobia implausible]
-[![implausible][snyk implausible badge]][snyk implausible]
-[![node version compatibility][shields node]][implausible package]
-[![npm current version][shields npm]][npm implausible]
+[![build status][shields travis]][travis implausible]
 ---
 **implausible** is a collection of [pseudorandom number generators (PRNGs)][wikipedia prng] and utilities powered by [seedrandom][npm seedrandom].
 
