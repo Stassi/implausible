@@ -4,7 +4,7 @@
 [![npm dependencies][shields dependencies]][implausible package]
 [![npm dev dependencies][shields dev dependencies]][implausible package]
 [![node version compatibility][shields node]][implausible package]
-[![implausible][snyk implausible badge]][snyk implausible]
+[![snyk advisor][snyk implausible badge]][snyk implausible]
 [![npm bundle size (minified)][shields min]][bundlephobia implausible]
 [![npm bundle size (minified + gzip)][shields minzip]][bundlephobia implausible]
 [![build status][shields travis]][travis implausible]
