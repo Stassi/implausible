@@ -9,6 +9,7 @@
 [![npm bundle size (minified + gzip)][shields minzip]][bundlephobia implausible]
 [![gha codeql][gha codeql badge]][gha codeql]
 [![gha ci][gha ci badge]][gha ci]
+[![gha snyk][gha snyk badge]][gha snyk]
 ---
 **implausible** is a collection of [pseudorandom number generators (PRNGs)][wikipedia prng] and utilities powered by [seedrandom][npm seedrandom].
 
@@ -306,6 +307,9 @@ Thanks to David Bau and additional authors for distributing parent package [seed
 [gha codeql]: https://github.com/Stassi/implausible/actions/workflows/codeql.yml
     (GitHub Actions: CodeQL for implausible)
 [gha codeql badge]: https://github.com/Stassi/implausible/actions/workflows/codeql.yml/badge.svg
+[gha snyk]: https://github.com/Stassi/implausible/actions/workflows/snyk.yml
+    (GitHub Actions: Snyk for implausible)
+[gha snyk badge]: https://github.com/Stassi/implausible/actions/workflows/snyk.yml/badge.svg
 [implausible license]: LICENSE
     (implausible license)
 [implausible package]: package.json
