@@ -7,7 +7,7 @@
 [![snyk advisor][snyk implausible badge]][snyk implausible]
 [![npm bundle size (minified)][shields min]][bundlephobia implausible]
 [![npm bundle size (minified + gzip)][shields minzip]][bundlephobia implausible]
-[![build status][shields travis]][travis implausible]
+[![gha ci][gha ci badge]][gha ci]
 ---
 **implausible** is a collection of [pseudorandom number generators (PRNGs)][wikipedia prng] and utilities powered by [seedrandom][npm seedrandom].
 
@@ -299,6 +299,9 @@ Thanks to David Bau and additional authors for distributing parent package [seed
     (bundlephobia: implausible)
 [codepen new]: https://codepen.io/pen
     (CodePen: Create a New Pen)
+[gha ci]: https://github.com/Stassi/implausible/actions/workflows/ci.yml
+    (GitHub Actions: CI for implausible)
+[gha ci badge]: https://github.com/Stassi/implausible/actions/workflows/ci.yml/badge.svg
 [implausible license]: LICENSE
     (implausible license)
 [implausible package]: package.json
