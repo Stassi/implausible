@@ -1,12 +1,13 @@
 # implausible
-[![build status][shields travis]][travis implausible]
+[![npm current version][shields npm]][npm implausible]
+[![license][shields license]][implausible license]
 [![npm dependencies][shields dependencies]][implausible package]
 [![npm dev dependencies][shields dev dependencies]][implausible package]
-[![license][shields license]][implausible license]
+[![node version compatibility][shields node]][implausible package]
+[![snyk advisor][snyk implausible badge]][snyk implausible]
 [![npm bundle size (minified)][shields min]][bundlephobia implausible]
 [![npm bundle size (minified + gzip)][shields minzip]][bundlephobia implausible]
-[![node version compatibility][shields node]][implausible package]
-[![npm current version][shields npm]][npm implausible]
+[![gha ci][gha ci badge]][gha ci]
 ---
 **implausible** is a collection of [pseudorandom number generators (PRNGs)][wikipedia prng] and utilities powered by [seedrandom][npm seedrandom].
 
@@ -298,6 +299,9 @@ Thanks to David Bau and additional authors for distributing parent package [seed
     (bundlephobia: implausible)
 [codepen new]: https://codepen.io/pen
     (CodePen: Create a New Pen)
+[gha ci]: https://github.com/Stassi/implausible/actions/workflows/ci.yml
+    (GitHub Actions: CI for implausible)
+[gha ci badge]: https://github.com/Stassi/implausible/actions/workflows/ci.yml/badge.svg
 [implausible license]: LICENSE
     (implausible license)
 [implausible package]: package.json
@@ -317,8 +321,8 @@ Thanks to David Bau and additional authors for distributing parent package [seed
 [shields minzip]: https://img.shields.io/bundlephobia/minzip/implausible.svg
 [shields node]: https://img.shields.io/node/v/implausible.svg
 [shields npm]: https://img.shields.io/npm/v/implausible.svg
-[shields travis]: https://img.shields.io/travis/com/Stassi/implausible.svg
-[travis implausible]: https://travis-ci.com/Stassi/implausible
-    (travis: implausible)
+[snyk implausible]: https://snyk.io/advisor/npm-package/implausible
+[snyk implausible badge]: https://snyk.io/advisor/npm-package/implausible/badge.svg
+    (Snyk Advisor: implausible)
 [wikipedia prng]: https://en.wikipedia.org/wiki/Pseudorandom_number_generator
     (wikipedia: Pseudorandom number generator)
