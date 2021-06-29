@@ -6,12 +6,12 @@ import { terser } from 'rollup-plugin-terser'
 
 const rollupConfig = [
   {
-    file: 'lib/implausible.esm.js',
+    file: 'lib/implausible.mjs',
     format: 'esm',
     sourcemap: true
   },
   {
-    file: 'lib/implausible.umd.js',
+    file: 'lib/implausible.cjs',
     format: 'umd',
     name: 'implausible',
     sourcemap: true

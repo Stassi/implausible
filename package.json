@@ -22,8 +22,11 @@
   "files": [
     "/lib"
   ],
-  "main": "./lib/implausible.umd.js",
-  "module": "./lib/implausible.esm.js",
+  "main": "./lib/implausible.cjs",
+  "exports": {
+    "import": "./lib/implausible.mjs",
+    "require": "./lib/implausible.cjs"
+  },
   "repository": "github:Stassi/implausible",
   "sideEffects": false,
   "scripts": {
